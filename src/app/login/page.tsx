@@ -1,0 +1,31 @@
+import { redirect } from "next/navigation";
+import { Shell } from "@/components/Shell";
+import { createClient } from "@/lib/supabase/server";
+import { LoginForm } from "./LoginForm";
+
+export const metadata = { title: "Log in | stickership" };
+
+async function Content() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (user) redirect("/account");
+  return (
+    <>
+      <div className="mx-auto max-w-[420px] py-16">
+        <h1 className="font-heading text-3xl font-bold">Log in</h1>
+        <p className="mt-2 text-sm text-black/60">We&apos;ll email you a 6-digit code. No password needed.</p>
+        <LoginForm />
+      </div>
+    </>
+  );
+}
+
+export default function Page() {
+  return (
+    <Shell>
+      <Content />
+    </Shell>
+  );
+}

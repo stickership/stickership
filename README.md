@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# stickership
 
-## Getting Started
+Next.js 16 + Supabase + Cashfree sticker store.
 
-First, run the development server:
+## Local dev
 
 ```bash
+colima start              # or Docker Desktop
+supabase start            # ports 553xx, applies migration + seed
+cp .env.example .env.local # fill from `supabase status -o env` + Cashfree sandbox keys
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Login codes land in the local inbox at http://127.0.0.1:55324.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Supabase**: `supabase link --project-ref <ref>` → `supabase db push` → run `supabase/seed.sql` in the SQL editor.
+2. **Auth email**: Dashboard → Auth → Email Templates → *Magic Link*: paste `supabase/templates/magic_link.html` (must contain `{{ .Token }}` so users get a code, not a link).
+3. **Cashfree**: Dashboard → Developers → Webhooks → add `https://<domain>/api/cashfree/webhook` for payment events. Set `CASHFREE_ENV=production` when live.
+4. **Env**: set every key from `.env.example` on your host. `ORDER_TOKEN_SECRET` = `openssl rand -hex 24`.
 
-## Learn More
+## Checks
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+node --experimental-strip-types scripts/check-webhook.mjs   # webhook signature tests
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Products are edited in the Supabase table editor (`products`).

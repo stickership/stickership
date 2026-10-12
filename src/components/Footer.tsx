@@ -1,24 +1,25 @@
 import Link from "next/link";
-import { FacebookIcon, InstagramIcon, MailIcon, YoutubeIcon } from "@/components/icons";
+import { MailIcon } from "@/components/icons";
+import { NewsletterForm } from "@/components/NewsletterForm";
 
-const quick = ["Stickers", "Mini Sticker Sheets", "Laptop Skins", "Credit Card Skins", "Our Story", "Track Your Order"];
+const quick = [
+  ["Stickers", "/"],
+  ["Holographic Stickers", "/?type=Holographic+stickers"],
+  ["Mystery Box", "/?type=Mystery+Box"],
+  ["Our Story", "/pages/our-story"],
+  ["Track Your Order", "/track"],
+];
 const info = [
-  "Track Your Order",
-  "Frequently Asked Questions",
-  "Terms & Conditions",
-  "Privacy Policy",
-  "Refund Policy",
-  "Shipping Policy",
-  "Bulk & Custom Orders",
-  "Blog",
-  "Contact Us",
+  ["Track Your Order", "/track"],
+  ["Frequently Asked Questions", "/pages/faq"],
+  ["Terms & Conditions", "/pages/terms"],
+  ["Privacy Policy", "/pages/privacy"],
+  ["Refund Policy", "/pages/refund"],
+  ["Shipping Policy", "/pages/shipping"],
+  ["Bulk & Custom Orders", "/pages/bulk-orders"],
+  ["Contact Us", "/pages/contact"],
 ];
 const contact = [{ Icon: MailIcon, text: "support@stickership.com" }];
-const social = [
-  { Icon: FacebookIcon, label: "Facebook", href: "#" },
-  { Icon: InstagramIcon, label: "Instagram", href: "#" },
-  { Icon: YoutubeIcon, label: "YouTube", href: "#" },
-];
 
 const wrap = "mx-auto w-full max-w-[1600px] px-[15px] md:px-[50px]";
 const h = "font-heading text-[18px] font-bold uppercase leading-[23.4px] text-white";
@@ -36,26 +37,7 @@ export function Footer() {
           <p className="mt-4 text-center text-base font-medium leading-[25.6px] text-white/80">
             Subscribe for exclusive drops, offers &amp; behind-the-scenes chaos.
           </p>
-          <form
-            action="#"
-            className="mt-5 flex h-20 w-[500px] max-w-full justify-between gap-2.5 rounded-lg bg-panel p-2.5 shadow-[0_1px_2px_0_rgba(255,255,255,0.06),0_1px_3px_0_rgba(255,255,255,0.1)]"
-          >
-            <label htmlFor="footer-email" className="sr-only">Email</label>
-            <input
-              id="footer-email"
-              type="email"
-              name="email"
-              required
-              placeholder="Email"
-              className="h-[60px] min-w-0 flex-1 rounded-lg bg-transparent p-[15px] text-[14px] font-semibold leading-[21px] text-white outline-none placeholder:text-white"
-            />
-            <button
-              type="submit"
-              className="h-[60px] cursor-pointer rounded-md border border-brand-yellow bg-brand-yellow px-[22px] py-[11px] font-heading text-[14px] font-bold leading-[16.8px] text-black shadow-[0_1px_2px_0_rgba(255,255,255,0.05)]"
-            >
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
       </section>
 
@@ -78,9 +60,9 @@ export function Footer() {
           <div>
             <h2 className={`${h} mb-7`}>Quick Links</h2>
             <ul>
-              {quick.map((t, i) => (
+              {quick.map(([t, href], i) => (
                 <li key={t} className={`leading-[18.2px] ${i ? "py-1.5" : "pb-1.5"}`}>
-                  <Link href="#" className={`text-[14px] font-medium leading-[18.2px] text-white/80 ${i ? link : "underline"}`}>
+                  <Link href={href} className={`text-[14px] font-medium leading-[18.2px] text-white/80 ${i ? link : "underline"}`}>
                     {t}
                   </Link>
                 </li>
@@ -90,9 +72,9 @@ export function Footer() {
           <div>
             <h2 className={`${h} mb-7`}>Information &amp; Support</h2>
             <ul>
-              {info.map((t, i) => (
+              {info.map(([t, href], i) => (
                 <li key={t} className={`leading-[18.2px] ${i ? "py-1.5" : "pb-1.5"}`}>
-                  <Link href="#" className={`text-[14px] font-medium leading-[18.2px] text-white/80 ${link}`}>
+                  <Link href={href} className={`text-[14px] font-medium leading-[18.2px] text-white/80 ${link}`}>
                     {t}
                   </Link>
                 </li>
@@ -104,24 +86,14 @@ export function Footer() {
         <div className="border-t border-white/10 py-[25px]">
           <div className={`${wrap} flex flex-col items-center gap-5 md:flex-row md:justify-between`}>
             <ul className="flex flex-wrap justify-center gap-x-10 gap-y-[5px] md:justify-start">
-              {quick.map((t, i) => (
+              {quick.map(([t, href], i) => (
                 <li
                   key={t}
                   className={`relative ${i < quick.length - 1 ? "after:absolute after:-right-5 after:top-0 after:h-full after:w-px after:bg-white/20" : ""}`}
                 >
-                  <Link href="#" className={`text-[14px] leading-[22.4px] text-white/80 ${i ? link : "underline"}`}>
+                  <Link href={href} className={`text-[14px] leading-[22.4px] text-white/80 ${i ? link : "underline"}`}>
                     {t}
                   </Link>
-                </li>
-              ))}
-            </ul>
-            <ul className="flex items-center gap-[30px]">
-              {social.map(({ Icon, label, href }) => (
-                <li key={label}>
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="block text-white">
-                    <Icon width={16} height={16} />
-                    <span className="sr-only">{label}</span>
-                  </a>
                 </li>
               ))}
             </ul>
