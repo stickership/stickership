@@ -1,7 +1,13 @@
 import "server-only";
 import { cache } from "react";
 import { notFound, redirect } from "next/navigation";
+import type { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
+
+// Keep in sync with private.is_admin() in supabase/migrations/0006_admin_allowlist.sql
+const ADMIN_EMAILS = ["sourabh52.singh@gmail.com", "stickershipindia@gmail.com"];
+
+export const isAdmin = (user: User) => !!user.email_confirmed_at && ADMIN_EMAILS.includes(user.email?.toLowerCase() ?? "");
 
 export const requireAdmin = cache(async () => {
   const supabase = await createClient();
@@ -9,8 +15,7 @@ export const requireAdmin = cache(async () => {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) redirect("/login?next=/admin");
-  const { data } = await supabase.from("admins").select("user_id").eq("user_id", user.id).maybeSingle();
-  if (!data) notFound();
+  if (!isAdmin(user)) notFound();
   return { supabase, user };
 });
 

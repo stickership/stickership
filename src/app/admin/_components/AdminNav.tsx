@@ -9,7 +9,6 @@ const LINKS = [
   ["Orders", "/admin/orders"],
   ["Customers", "/admin/customers"],
   ["Subscribers", "/admin/subscribers"],
-  ["Admins", "/admin/admins"],
   ["View store ↗", "/"],
 ];
 

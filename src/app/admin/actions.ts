@@ -102,30 +102,6 @@ export async function updateOrderStatus(input: z.input<typeof orderSchema>): Pro
   return error ? { ok: false, error: error.message } : { ok: true };
 }
 
-export async function inviteAdmin(_: unknown, form: FormData): Promise<Result | null> {
-  const { supabase } = await requireAdmin();
-  const email = z.string().trim().toLowerCase().email().safeParse(form.get("email"));
-  if (!email.success) return { ok: false, error: "Enter a valid email" };
-  const { error } = await supabase.from("admin_invites").upsert({ email: email.data }, { onConflict: "email", ignoreDuplicates: true });
-  return error ? { ok: false, error: error.message } : { ok: true };
-}
-
-export async function removeAdmin(userId: string): Promise<Result> {
-  const { supabase, user } = await requireAdmin();
-  if (userId === user.id) return { ok: false, error: "You can't remove yourself" };
-  const { data: target } = await supabase.from("admins").select("email").eq("user_id", userId).maybeSingle();
-  const { error } = await supabase.from("admins").delete().eq("user_id", userId);
-  if (error) return { ok: false, error: error.message };
-  if (target) await supabase.from("admin_invites").delete().eq("email", target.email);
-  return { ok: true };
-}
-
-export async function removeInvite(email: string): Promise<Result> {
-  const { supabase } = await requireAdmin();
-  const { error } = await supabase.from("admin_invites").delete().eq("email", email);
-  return error ? { ok: false, error: error.message } : { ok: true };
-}
-
 export async function removeSubscriber(email: string): Promise<Result> {
   const { supabase } = await requireAdmin();
   const { error } = await supabase.from("subscribers").delete().eq("email", email);
