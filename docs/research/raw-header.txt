@@ -1,0 +1,136 @@
+div.shopify-section shopify-section-group-header-group section-header [0, 64, 1440, 91]
+  {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(0, 0, 0)","width":"1440px","height":"91px","display":"block","flexDirection":"row","zIndex":"4","opacity":"1","objectFit":"fill"}
+  sticky-header.header-wrapper por db [0, 64, 1440, 91]
+    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","backgroundColor":"rgb(0, 0, 0)","width":"1440px","height":"91px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+    header.header header--middle-left-navigation-left w100 [0, 64, 1440, 91]
+      {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","backgroundColor":"rgb(0, 0, 0)","padding":"10px 0px","width":"1440px","height":"91px","display":"block","flexDirection":"row","borderBottom":"1px solid rgba(255, 255, 255, 0.08)","opacity":"1","objectFit":"fill"}
+      div.header__inner page-width [0, 74, 1440, 70]
+        {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","padding":"0px 50px","width":"1440px","height":"70px","maxWidth":"1600px","display":"grid","flexDirection":"row","gap":"normal 10px","gridTemplateColumns":"170px 695px 455px","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+        div.header__heading flex align-center [50, 74, 170, 70]
+          {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"170px","height":"70px","display":"flex","flexDirection":"row","alignItems":"center","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+          a.header__heading-link link link--text [50, 79, 170, 60] src=https://www.stickitup.xyz/
+            {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"170px","height":"60.4766px","display":"flex","flexDirection":"row","justifyContent":"center","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            img.header__heading-logo motion-reduce [65, 79, 140, 60] src=https://www.stickitup.xyz/cdn/shop/files/Stickitup_logo_with_mascot_e854c4bf-8e9b-4573-bba6-7e71f80020a8.png?v=1780984920&width=500
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"140px","height":"60.4766px","maxWidth":"min(100%, 140px)","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","overflow":"clip","opacity":"1","objectFit":"fill","aspectRatio":"auto 170 / 73.2759"}
+        div.header__inline-menu small-hide medium-hide [258, 74, 667, 70]
+          {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","margin":"0px 0px 0px 28px","width":"667px","height":"70px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+          nav. [243, 74, 682, 62]
+            {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","margin":"0px 0px 0px -15px","width":"682px","height":"61.5938px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            ul.list-menu list-menu--inline [243, 74, 682, 62]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"682px","height":"61.5938px","display":"inline-flex","flexDirection":"row","gap":"normal 10px","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              li. [243, 74, 182, 31]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"182.102px","height":"30.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                header-menu. [243, 74, 182, 31]
+                  {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                  details.mega-menu [243, 74, 182, 31]
+                    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"182.102px","height":"30.7969px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              li. [435, 74, 150, 31]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"150.359px","height":"30.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                a.header__menu-item header__menu-item--top header__menu-item [435, 74, 150, 31] src=https://www.stickitup.xyz/pages/find-your-vibe
+                  {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","padding":"5px 15px","width":"150.359px","height":"30.7969px","maxWidth":"300px","display":"inline-block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                  span.link-effect-no-underline [450, 80, 120, 20] "FIND YOUR VIBE"
+                    {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+              li. [595, 74, 119, 31]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"118.609px","height":"30.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                header-menu. [595, 74, 119, 31]
+                  {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                  details.mega-menu [595, 74, 119, 31]
+                    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"118.609px","height":"30.7969px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              li. [724, 74, 138, 31]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"137.945px","height":"30.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                a.header__menu-item header__menu-item--top header__menu-item [724, 74, 138, 31] src=https://www.stickitup.xyz/collections/mystery-box
+                  {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","padding":"5px 15px","width":"137.945px","height":"30.7969px","maxWidth":"300px","display":"inline-block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                  span.link-effect-no-underline [739, 80, 108, 20] "MYSTERY BOX"
+                    {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+              li. [243, 105, 174, 31]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"173.977px","height":"30.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                a.header__menu-item header__menu-item--top header__menu-item [243, 105, 174, 31] src=https://www.stickitup.xyz/pages/custom-stickers
+                  {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","padding":"5px 15px","width":"173.977px","height":"30.7969px","maxWidth":"300px","display":"inline-block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                  span.link-effect-no-underline [258, 111, 144, 20] "CUSTOM STICKERS"
+                    {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+              li. [427, 105, 116, 31]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"116.109px","height":"30.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                a.header__menu-item header__menu-item--top header__menu-item [427, 105, 116, 31] src=https://www.stickitup.xyz/pages/our-story
+                  {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","padding":"5px 15px","width":"116.109px","height":"30.7969px","maxWidth":"300px","display":"inline-block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                  span.link-effect-no-underline [442, 111, 86, 20] "OUR STORY"
+                    {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+              li. [553, 105, 100, 31]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"100.219px","height":"30.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                a.header__menu-item header__menu-item--top header__menu-item [553, 105, 100, 31] src=https://www.stickitup.xyz/pages/reviews
+                  {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","padding":"5px 15px","width":"100.219px","height":"30.7969px","maxWidth":"300px","display":"inline-block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                  span.link-effect-no-underline [568, 111, 70, 20] "REVIEWS"
+                    {"fontSize":"16px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"20.8px","letterSpacing":"-0.32px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+        div.header__icons flex align-center [935, 74, 455, 70]
+          {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"455px","height":"70px","display":"flex","flexDirection":"row","alignItems":"center","gap":"normal 10px","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+          a.header__customer-support-region__button header__customer-support-region flex [935, 74, 221, 70] src=tel:wecare@stickitup.xyz
+            {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","backgroundColor":"rgb(31, 30, 30)","padding":"0px 10px","margin":"0px 10px 0px 0px","width":"220.914px","height":"70px","display":"flex","flexDirection":"row","alignItems":"center","gap":"16px","borderRadius":"8px","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+            svg.icon icon-support-region light [945, 97, 24, 24]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"24px","height":"24px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","overflow":"hidden","opacity":"0.7","objectFit":"fill"}
+              path. [947, 107, 4, 7]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              path. [963, 107, 4, 7]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              path. [948, 98, 18, 7]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              path. [957, 117, 10, 3]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            span.header__customer-support-region__global-info [985, 91, 161, 38]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"160.914px","height":"37.5938px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.light db w100 [985, 91, 161, 12] "Customer support"
+                {"fontSize":"12px","fontWeight":"500","lineHeight":"12px","color":"rgb(255, 255, 255)","width":"160.914px","height":"12px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"0.7","objectFit":"fill"}
+              span.font-body-bold [985, 105, 161, 20] "wecare@stickitup.xyz"
+                {"fontSize":"16px","fontWeight":"800","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+          details-modal.header__search header__search--has-predictive [1176, 87, 44, 44]
+            {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"44px","height":"44px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            details.flex [1176, 87, 44, 44]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"44px","height":"44px","display":"flex","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              summary.header__icon header__icon--search header__icon--summary [1176, 87, 44, 44]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"44px","height":"44px","display":"flex","flexDirection":"row","justifyContent":"center","alignItems":"center","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+                svg.modal__toggle-open icon icon-search [1186, 97, 24, 24]
+                  {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"24px","height":"24px","display":"flex","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","overflow":"hidden","opacity":"1","objectFit":"fill"}
+                  use. [1188, 99, 20, 20]
+                    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              div.search-modal gradient color-background-1 [1220, 131, 0, 100]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(0, 0, 0)","backgroundColor":"rgb(255, 255, 255)","padding":"15px 0px","height":"100px","display":"block","flexDirection":"row","position":"absolute","top":"44px","bottom":"-100px","opacity":"1","objectFit":"fill"}
+                div.page-width [1220, 146, 100, 70]
+                  {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(0, 0, 0)","padding":"0px 50px","margin":"0px -100px 0px 0px","width":"100px","height":"70px","maxWidth":"1600px","display":"block","flexDirection":"row","opacity":"1","objectFit":"fill"}
+                  div.por search-modal__inner [1270, 146, 0, 70]
+                    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(0, 0, 0)","height":"70px","display":"grid","flexDirection":"row","gap":"normal 15px","gridTemplateColumns":"82px 40px","position":"relative","opacity":"1","objectFit":"fill"}
+            div.details-modal-overlay search-modal-overlay [0, 0, 1440, 900]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","backgroundColor":"rgba(255, 255, 255, 0.1)","width":"1440px","height":"900px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"fixed","zIndex":"1","opacity":"0","transition":"opacity 0.3s, visibility 0.3s","objectFit":"fill"}
+          a.header__icon header__icon--account link [1230, 87, 44, 44] src=https://www.stickitup.xyz/customer_authentication/redirect?locale=en&region_country=IN
+            {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"44px","height":"44px","display":"flex","flexDirection":"row","justifyContent":"center","alignItems":"center","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            svg.icon icon-account [1240, 97, 24, 24]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"24px","height":"24px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","overflow":"hidden","opacity":"1","objectFit":"fill"}
+              rect. [1247, 99, 10, 10]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"10px","height":"10px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              path. [1252, 113, 10, 7]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              path. [1242, 113, 10, 7]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            span.visually-hidden [1251, 109, 1, 1] "Log in"
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","margin":"-1px","width":"1px","height":"1px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","overflow":"hidden","position":"absolute","top":"45.5px","right":"188.586px","bottom":"46.5px","left":"1252.41px","opacity":"1","objectFit":"fill"}
+          a.header__icon header__icon--cart link [1294, 94, 96, 30] src=https://www.stickitup.xyz/cart
+            {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","margin":"0px 0px 0px 10px","width":"96.0859px","height":"30px","display":"flex","flexDirection":"row","justifyContent":"center","alignItems":"center","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+            div.header__cart-inner flex justify-center [1294, 94, 96, 30]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"96.0859px","height":"30px","display":"flex","flexDirection":"row","justifyContent":"center","alignItems":"center","gap":"normal 10px","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              div.por flex [1294, 97, 24, 24]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"24px","height":"24px","display":"flex","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+                svg.icon icon-cart icon-open-state [1294, 97, 24, 24]
+                  {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"24px","height":"24px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","overflow":"hidden","opacity":"1","objectFit":"fill"}
+                  path. [1297, 103, 19, 17]
+                    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                  path. [1302, 98, 9, 4]
+                    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                div.cart-count-bubble flex justify-center [1308, 94, 18, 18]
+                  {"fontSize":"10px","fontWeight":"600","lineHeight":"16px","color":"rgb(0, 0, 0)","backgroundColor":"rgb(251, 254, 33)","width":"18px","height":"18px","display":"flex","flexDirection":"row","justifyContent":"center","alignItems":"center","borderRadius":"50%","boxShadow":"rgba(255, 255, 255, 0.1) 0px 4px 6px -1px, rgba(255, 255, 255, 0.06) 0px 2px 4px -1px","position":"absolute","top":"-3px","right":"-8px","bottom":"9px","left":"14px","opacity":"1","objectFit":"fill"}
+                  span.flex justify-center align-center [1314, 95, 7, 16] "0"
+                    {"fontSize":"10px","fontWeight":"600","lineHeight":"16px","color":"rgb(0, 0, 0)","width":"6.60156px","height":"16px","display":"flex","flexDirection":"row","justifyContent":"center","alignItems":"center","opacity":"1","objectFit":"fill"}
+                  span.visually-hidden flex justify-center [1316, 103, 1, 1] "0 items"
+                    {"fontSize":"10px","fontWeight":"600","lineHeight":"16px","color":"rgb(0, 0, 0)","margin":"-1px","width":"1px","height":"1px","display":"flex","flexDirection":"row","justifyContent":"center","alignItems":"center","overflow":"hidden","position":"absolute","top":"9.5px","right":"9.5px","bottom":"9.5px","left":"9.5px","opacity":"1","objectFit":"fill"}
+              div.flex header__cart-total flex-column [1328, 94, 62, 30]
+                {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"62.0859px","height":"30px","display":"flex","flexDirection":"column","gap":"2px normal","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+                span.flex align-center small-hide [1328, 94, 62, 12] "Subtotal"
+                  {"fontSize":"12px","fontWeight":"500","lineHeight":"12px","color":"rgb(255, 255, 255)","width":"62.0859px","height":"12px","display":"flex","flexDirection":"row","alignItems":"center","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"0.7","objectFit":"fill"}
+                span.font-body-bold header__cart-total__price lh1 [1328, 108, 62, 16] "Rs. 0.00"
+                  {"fontSize":"16px","fontWeight":"800","lineHeight":"16px","color":"rgb(255, 255, 255)","width":"62.0859px","height":"16px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}

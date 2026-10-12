@@ -1,0 +1,54 @@
+section.shopify-section section [0, 892, 1440, 29]
+  {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(0, 0, 0)","width":"1440px","height":"28.7969px","display":"block","flexDirection":"row","opacity":"1","objectFit":"fill"}
+  div.isolate [0, 892, 1440, 29]
+    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(0, 0, 0)","width":"1440px","height":"28.7969px","display":"block","flexDirection":"row","position":"relative","zIndex":"0","opacity":"1","objectFit":"fill"}
+    div.scrolling-text section-template--27907087007959__scrolling_text_4zmWch-padding color-background-2 [0, 892, 1440, 29]
+      {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","backgroundColor":"rgb(0, 0, 0)","width":"1440px","height":"28.7969px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+      div.overflow-hidden [0, 892, 1440, 29]
+        {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"1440px","height":"28.7969px","display":"block","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","overflow":"hidden","opacity":"1","objectFit":"fill"}
+        scrolling-text.scrolling-text__content scrolling-text__content--template--27907087007959__scrolling_text_4zmWch por [0, 892, 1440, 29]
+          {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"1440px","height":"28.7969px","display":"flex","flexDirection":"row","gap":"30px","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","position":"relative","opacity":"1","objectFit":"fill"}
+          ul.list-unstyled scrolling-text__list scrolling-text__list--original [-1449, 892, 1440, 29]
+            {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"1440px","height":"28.7969px","display":"flex","flexDirection":"row","justifyContent":"space-around","alignItems":"center","gap":"30px","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","transform":"matrix(1, 0, 0, 1, -1449.42, 0)","objectFit":"fill"}
+            li.scrolling-text__li [-1384, 892, 247, 29]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"246.742px","height":"28.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.scrolling-text__item scrolling-text__item--template--27907087007959__scrolling_text_4zmWch scrolling-text__item--template--27907087007959__scrolling_text_4zmWch-normal_text_YQfcXP
+ [-1384, 890, 247, 33] "💚 12 Lakh+ Happy Customers"
+                {"fontSize":"18px","fontWeight":"500","lineHeight":"28.8px","color":"rgb(255, 255, 255)","backgroundImage":"linear-gradient(133deg, rgb(250, 220, 54) 11%, rgb(254, 98, 146) 49%, rgb(250, 220, 54) 87%)","padding":"5px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            li.scrolling-text__li [-975, 893, 149, 26]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"149.141px","height":"25.5938px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.scrolling-text__item scrolling-text__item--template--27907087007959__scrolling_text_4zmWch scrolling-text__item--template--27907087007959__scrolling_text_4zmWch-extra_bold_heading_text_yhtjb9
+ [-975, 890, 149, 32] "🇮🇳 Made in India"
+                {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"23.4px","color":"rgb(255, 255, 255)","padding":"5px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            li.scrolling-text__li [-665, 892, 147, 29]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"147.07px","height":"28.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.scrolling-text__item scrolling-text__item--template--27907087007959__scrolling_text_4zmWch scrolling-text__item--template--27907087007959__scrolling_text_4zmWch-normal_text_ypgqiJ
+ [-665, 890, 147, 33] "🚚 Ships in 24 Hrs"
+                {"fontSize":"18px","fontWeight":"500","lineHeight":"28.8px","color":"rgb(255, 255, 255)","padding":"5px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            li.scrolling-text__li [-356, 893, 281, 26]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"281.078px","height":"25.5938px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.scrolling-text__item scrolling-text__item--template--27907087007959__scrolling_text_4zmWch scrolling-text__item--template--27907087007959__scrolling_text_4zmWch-extra_bold_heading_text_UaBr9C
+ [-356, 890, 281, 32] "🔥 India's Largest Sticker Brand"
+                {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"23.4px","color":"rgb(255, 255, 255)","padding":"5px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+          ul.list-unstyled scrolling-text__list scrolling-text__list--repeated [21, 892, 1440, 29]
+            {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"1440px","height":"28.7969px","display":"flex","flexDirection":"row","justifyContent":"space-around","alignItems":"center","gap":"30px","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","transform":"matrix(1, 0, 0, 1, -1449.42, 0)","objectFit":"fill"}
+            li.scrolling-text__li [86, 892, 247, 29]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"246.742px","height":"28.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.scrolling-text__item scrolling-text__item--template--27907087007959__scrolling_text_4zmWch scrolling-text__item--template--27907087007959__scrolling_text_4zmWch-normal_text_YQfcXP
+ [86, 890, 247, 33] "💚 12 Lakh+ Happy Customers"
+                {"fontSize":"18px","fontWeight":"500","lineHeight":"28.8px","color":"rgb(255, 255, 255)","backgroundImage":"linear-gradient(133deg, rgb(250, 220, 54) 11%, rgb(254, 98, 146) 49%, rgb(250, 220, 54) 87%)","padding":"5px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            li.scrolling-text__li [495, 893, 149, 26]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"149.141px","height":"25.5938px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.scrolling-text__item scrolling-text__item--template--27907087007959__scrolling_text_4zmWch scrolling-text__item--template--27907087007959__scrolling_text_4zmWch-extra_bold_heading_text_yhtjb9
+ [495, 890, 149, 32] "🇮🇳 Made in India"
+                {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"23.4px","color":"rgb(255, 255, 255)","padding":"5px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            li.scrolling-text__li [805, 892, 147, 29]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"147.07px","height":"28.7969px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.scrolling-text__item scrolling-text__item--template--27907087007959__scrolling_text_4zmWch scrolling-text__item--template--27907087007959__scrolling_text_4zmWch-normal_text_ypgqiJ
+ [805, 890, 147, 33] "🚚 Ships in 24 Hrs"
+                {"fontSize":"18px","fontWeight":"500","lineHeight":"28.8px","color":"rgb(255, 255, 255)","padding":"5px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+            li.scrolling-text__li [1114, 893, 281, 26]
+              {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(255, 255, 255)","width":"281.078px","height":"25.5938px","display":"list-item","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}
+              span.scrolling-text__item scrolling-text__item--template--27907087007959__scrolling_text_4zmWch scrolling-text__item--template--27907087007959__scrolling_text_4zmWch-extra_bold_heading_text_UaBr9C
+ [1114, 890, 281, 32] "🔥 India's Largest Sticker Brand"
+                {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\"","lineHeight":"23.4px","color":"rgb(255, 255, 255)","padding":"5px","display":"inline","flexDirection":"row","border":"0px none rgb(255, 255, 255)","borderBottom":"0px none rgb(255, 255, 255)","opacity":"1","objectFit":"fill"}

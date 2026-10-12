@@ -1,0 +1,259 @@
+=== SECTION 078455511__image_banner_tFdP8D 372 rgba(0, 0, 0, 0)
+DIV.banner.por '' [0, 1440, 372]  
+     {"fontSize":"16px","color":"rgb(0, 0, 0)","width":"1440px","height":"371.664px","display":"flex",}
+APPEAR-ANIMATE-SINGLE.parallax-inner.w100 '' [0, 1440, 372]  
+     {"fontSize":"16px","color":"rgb(0, 0, 0)","backgroundColor":"rgb(250, 250, 250)","width":"1440px","height":"371.664px","display":"block","transition":"transform 1s cubic-bezier(0.03, 0.93, 0.97, 1), opacity 0.3s"}
+IMG.small-hide '' [0, 1440, 372] https://www.stickitup.xyz/cdn/shop/files/footer-Crop_1_-_Compress.jpg?v=1780985365&width=1500 
+     {"fontSize":"16px","color":"rgb(0, 0, 0)","width":"1440px","height":"371.664px","maxWidth":"100%","display":"block",}
+DIV.banner__content.banner__content--middle-center '' [0, 1440, 372]  
+     {"fontSize":"16px","color":"rgb(0, 0, 0)","padding":"50px","width":"1440px","height":"371.664px","maxWidth":"1600px","display":"flex","alignItems":"center","justifyContent":"center",}
+=== SECTION 05-1639-42a5-afa3-cafcfb09f9ef 229 rgba(0, 0, 0, 0)
+DIV.newsletter__grid.image-with-text__grid '' [50, 1340, 213]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"1340px","height":"213.188px","gap":"28px 50px","display":"flex",}
+DIV.image-with-text__text-item.grid__item '' [50, 1340, 213]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"1340px","height":"213.188px","display":"block",}
+DIV.newsletter__content.image-with-text__content '' [50, 1340, 213]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"1340px","height":"213.188px","display":"flex","alignItems":"flex-start","justifyContent":"flex-start",}
+H2.newsletter__heading.image-with-text__heading 'Join the Tribe' [583, 274, 58]  
+     {"fontSize":"48px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"57.6px","letterSpacing":"-1.44px","color":"rgb(255, 255, 255)","width":"274.164px","height":"57.5938px","display":"block","textAlign":"center",}
+P. 'Subscribe for exclusive drops, offers & behind-the-scenes ch' [493, 453, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"453.461px","height":"25.5938px","display":"block","textAlign":"center",}
+FORM.newsletter__email-form '' [470, 500, 80]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"500px","height":"80px","display":"block","textAlign":"center",}
+DIV.newsletter__form-field-wrapper.newsletter__for '' [470, 500, 80]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","backgroundColor":"rgb(31, 30, 30)","padding":"10px","borderRadius":"8px","boxShadow":"rgba(255, 255, 255, 0.06) 0px 1px 2px 0px, rgba(255, 255, 255, 0.1) 0px 1px 3px 0px","width":"500px","height":"80px","gap":"10px","display":"flex","justifyContent":"space-between","textAlign":"center",}
+INPUT.newsletter__input.field__input 'Email' [480, 354, 60]  
+     {"fontSize":"14px","lineHeight":"21px","color":"rgba(255, 255, 255, 0.75)","padding":"15px","borderRadius":"8px","width":"354.477px","height":"60px","display":"inline-block","transition":"box-shadow 0.1s"}
+LABEL.field__label.visually-hidden 'Email' [479, 1, 1]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","margin":"-1px -1px 3px","width":"1px","height":"1px","display":"block","textAlign":"center",}
+BUTTON.button.newsletter__button '' [844, 116, 60]  
+     {"fontSize":"14px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"16.8px","color":"rgb(0, 0, 0)","backgroundColor":"rgb(251, 254, 33)","padding":"11px 22px","borderRadius":"6px","border":"1px solid rgb(251, 254, 33)","borderTop":"1px solid rgb(251, 254, 33)","borderRight":"1px solid rgb(251, 254, 33)","boxShadow":"rgba(255, 255, 255, 0.05) 0px 1px 2px 0px","width":"115.523px","height":"60px","gap":"10px","display":"flex","alignItems":"center","justifyContent":"center","textAlign":"center",}
+SPAN.small-hide 'Subscribe' [867, 70, 17]  
+     {"fontSize":"14px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"16.8px","color":"rgb(0, 0, 0)","width":"69.5234px","height":"16.7969px","display":"block","textAlign":"center",}
+=== SECTION ctions--27907078455511__footer 565 rgba(0, 0, 0, 0)
+FOOTER.footer '' [0, 1440, 565]  
+     {"fontSize":"16px","color":"rgb(0, 0, 0)","width":"1440px","height":"565.445px","display":"block",}
+DIV.footer__inner.color-background-2 '' [0, 1440, 565]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","backgroundColor":"rgb(0, 0, 0)","padding":"52px 0px 0px","width":"1440px","height":"565.445px","display":"block",}
+DIV.footer__content-top.page-width '' [0, 1440, 374]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","padding":"0px 50px 50px","width":"1440px","height":"373.656px","maxWidth":"1600px","display":"block",}
+DIV.footer__blocks-wrapper.grid '' [50, 1340, 324]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"1340px","height":"323.656px","gap":"60px 28px","display":"flex",}
+FOOTER-COLLAPSE-BLOCK.footer-block.grid__item '' [50, 428, 324]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"323.656px","display":"block",}
+A. '' [174, 180, 20]  /
+     {"fontSize":"16px","color":"rgb(0, 0, 238)","display":"inline","textAlign":"center","textDecorationLine":"underline",}
+IMG. '' [174, 180, 78] https://www.stickitup.xyz/cdn/shop/files/Stickitup_logo_with_mascot_e854c4bf-8e9b-4573-bba6-7e71f80020a8.png?v 
+     {"fontSize":"16px","color":"rgb(0, 0, 238)","width":"180px","height":"78px","maxWidth":"min(100%, 180px)","display":"inline","textAlign":"center",}
+H2.footer-block__heading.h5 '' [50, 428, 23]  
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","margin":"30px 0px","width":"427.953px","height":"23.3984px","display":"block",}
+A.full-unstyled-link.footer-block__collapse-link '' [50, 428, 23]  #
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","width":"427.953px","height":"23.3984px","display":"block",}
+SPAN. 'GET IN TOUCH' [50, 118, 22]  
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","display":"inline",}
+DIV.footer-block__details-content.footer-block-sto '' [50, 428, 87]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"427.953px","height":"87.1953px","display":"block",}
+UL.list-unstyled '' [50, 428, 87]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"427.953px","height":"87.1953px","display":"block",}
+LI.flex.footer-block-store-information__item '' [50, 428, 22]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"427.953px","height":"22.3984px","display":"flex",}
+DIV.footer-block-store-information__item__content. 'STICK IT UP, R.T. Road, behind Rajshree Cinema, Dahisar East' [80, 382, 22]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"382.43px","height":"22.3984px","display":"block",}
+LI.flex.footer-block-store-information__item '' [50, 428, 22]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","margin":"10px 0px 0px","width":"427.953px","height":"22.3984px","display":"flex",}
+DIV.footer-block-store-information__item__content. '+91 9867925615' [80, 96, 22]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"96.2266px","height":"22.3984px","display":"block",}
+LI.flex.footer-block-store-information__item '' [50, 428, 22]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","margin":"10px 0px 0px","width":"427.953px","height":"22.3984px","display":"flex",}
+DIV.footer-block-store-information__item__content. 'wecare@stickitup.xyz' [80, 132, 22]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"132.133px","height":"22.3984px","display":"block",}
+FOOTER-COLLAPSE-BLOCK.footer-block.grid__item '' [506, 428, 324]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"323.656px","display":"block",}
+H2.footer-block__heading.h5 '' [506, 428, 23]  
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","margin":"0px 0px 30px","width":"427.953px","height":"23.3984px","display":"block",}
+A.full-unstyled-link.footer-block__collapse-link '' [506, 428, 23]  #
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","width":"427.953px","height":"23.3984px","display":"block",}
+SPAN. 'QUICK LINKS' [506, 108, 22]  
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","display":"inline",}
+UL.footer-block__details-content.list-unstyled '' [506, 428, 180]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"179.672px","display":"block",}
+LI. '' [506, 428, 29]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"28.6953px","display":"list-item",}
+A.link.list-menu__item '' [506, 49, 24]  /collections/buy-vinyl-stickers-online-india
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"0px 0px 6px","width":"49.0469px","height":"24.1953px","display":"inline-block",}
+SPAN.underlined-link 'Stickers' [506, 49, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.85)","display":"inline",}
+LI. '' [506, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [506, 117, 30]  /collections/buy-vinyl-sticker-sheets-india
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"116.523px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Mini Sticker Sheets' [506, 117, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [506, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [506, 79, 30]  /collections/buy-vinyl-laptop-skins-online-india
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"79.1172px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Laptop Skins' [506, 79, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [506, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [506, 108, 30]  /collections/credit-card-skins
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"107.633px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Credit Card Skins' [506, 108, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [506, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [506, 61, 30]  /pages/our-story
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"60.7344px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Our Story' [506, 61, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [506, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [506, 107, 30]  https://track.stickitup.co.in/
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"106.641px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Track Your Order' [506, 107, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+FOOTER-COLLAPSE-BLOCK.footer-block.grid__item '' [962, 428, 324]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"323.656px","display":"block",}
+H2.footer-block__heading.h5 '' [962, 428, 23]  
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","margin":"0px 0px 30px","width":"427.953px","height":"23.3984px","display":"block",}
+A.full-unstyled-link.footer-block__collapse-link '' [962, 428, 23]  #
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","width":"427.953px","height":"23.3984px","display":"block",}
+SPAN. 'INFORMATION & SUPPORT' [962, 222, 22]  
+     {"fontSize":"18px","fontWeight":"700","fontFamily":"\"Bricolage Grotesque\", sans-serif","lineHeight":"23.4px","letterSpacing":"-0.36px","color":"rgb(255, 255, 255)","display":"inline",}
+UL.footer-block__details-content.list-unstyled '' [962, 428, 270]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"270.258px","display":"block",}
+LI. '' [962, 428, 29]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"28.6953px","display":"list-item",}
+A.link.list-menu__item '' [962, 107, 24]  https://track.stickitup.co.in/
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"0px 0px 6px","width":"106.641px","height":"24.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Track Your Order' [962, 107, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [962, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [962, 173, 30]  /pages/faqs
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"173.031px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Frequently Asked Questions' [962, 173, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [962, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [962, 119, 30]  /policies/terms-of-service
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"119.156px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Terms & Conditions' [962, 119, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [962, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [962, 86, 30]  /policies/privacy-policy
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"85.9375px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Privacy Policy' [962, 86, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [962, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [962, 84, 30]  /policies/refund-policy
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"83.8203px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Refund Policy' [962, 84, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [962, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [962, 93, 30]  /policies/shipping-policy
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"93.4531px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Shipping Policy' [962, 93, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [962, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [962, 135, 30]  /pages/custom-stickers
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"135.227px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Bulk & Custom Orders' [962, 135, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [962, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [962, 28, 30]  https://www.stickitup.xyz/blogs/news
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"27.8906px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Blog' [962, 28, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [962, 428, 30]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"427.953px","height":"30.1953px","display":"list-item",}
+A.link.list-menu__item '' [962, 69, 30]  /pages/contact-us-1
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","padding":"6px 0px","width":"68.5781px","height":"30.1953px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Contact Us' [962, 69, 18]  
+     {"fontSize":"14px","lineHeight":"18.2px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+DIV.footer__content-middle '' [0, 1440, 77]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","padding":"25px 0px","border":"","borderTop":"1px solid rgba(255, 255, 255, 0.08)","width":"1440px","height":"76.5938px","display":"block",}
+DIV.page-width.flex '' [0, 1440, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","padding":"0px 50px","width":"1440px","height":"25.5938px","maxWidth":"1600px","gap":"15px","display":"flex","alignItems":"center",}
+DIV.footer__column.footer__content-middle__column '' [50, 968, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"968.344px","height":"25.5938px","display":"flex",}
+UL.footer__column__bottom-links.list-unstyled '' [50, 720, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"719.695px","height":"25.5938px","gap":"5px 40px","display":"flex",}
+LI. '' [50, 49, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"49.0469px","height":"25.5938px","display":"list-item",}
+A.link.footer__text-color '' [50, 49, 22]  /collections/buy-vinyl-stickers-online-india
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"49.0469px","height":"22.3984px","display":"inline-block",}
+SPAN.underlined-link 'Stickers' [50, 49, 18]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.85)","display":"inline",}
+LI. '' [139, 117, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"116.523px","height":"25.5938px","display":"list-item",}
+A.link.footer__text-color '' [139, 117, 22]  /collections/buy-vinyl-sticker-sheets-india
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"116.523px","height":"22.3984px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Mini Sticker Sheets' [139, 117, 18]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [296, 79, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"79.1172px","height":"25.5938px","display":"list-item",}
+A.link.footer__text-color '' [296, 79, 22]  /collections/buy-vinyl-laptop-skins-online-india
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"79.1172px","height":"22.3984px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Laptop Skins' [296, 79, 18]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [415, 108, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"107.633px","height":"25.5938px","display":"list-item",}
+A.link.footer__text-color '' [415, 108, 22]  /collections/credit-card-skins
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"107.633px","height":"22.3984px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Credit Card Skins' [415, 108, 18]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [562, 61, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"60.7344px","height":"25.5938px","display":"list-item",}
+A.link.footer__text-color '' [562, 61, 22]  /pages/our-story
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"60.7344px","height":"22.3984px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Our Story' [562, 61, 18]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+LI. '' [663, 107, 26]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"106.641px","height":"25.5938px","display":"list-item",}
+A.link.footer__text-color '' [663, 107, 22]  https://track.stickitup.co.in/
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","width":"106.641px","height":"22.3984px","display":"inline-block",}
+SPAN.link-effect-no-underline 'Track Your Order' [663, 107, 18]  
+     {"fontSize":"14px","lineHeight":"22.4px","color":"rgba(255, 255, 255, 0.8)","display":"inline",}
+DIV.footer__column.footer__content-middle__column '' [1033, 357, 16]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"356.656px","height":"16px","display":"block",}
+UL.list-unstyled.flex '' [1033, 357, 16]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"356.656px","height":"16px","gap":"30px","display":"flex","justifyContent":"flex-end",}
+LI.list-social__item.flex '' [1282, 16, 16]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"16px","height":"16px","display":"flex","alignItems":"center",}
+A.link.flex '' [1282, 16, 16]  https://www.facebook.com/stickitup.xyz/
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"16px","height":"16px","display":"flex","alignItems":"center","justifyContent":"center",}
+SPAN.visually-hidden 'Facebook' [1290, 1, 1]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","margin":"-1px","width":"1px","height":"1px","display":"block",}
+LI.list-social__item.flex '' [1328, 16, 16]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"16px","height":"16px","display":"flex","alignItems":"center",}
+A.link.flex '' [1328, 16, 16]  https://www.instagram.com/stickitup.xyz/
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"16px","height":"16px","display":"flex","alignItems":"center","justifyContent":"center",}
+SPAN.visually-hidden 'Instagram' [1336, 1, 1]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","margin":"-1px","width":"1px","height":"1px","display":"block",}
+LI.list-social__item.flex '' [1374, 16, 16]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"16px","height":"16px","display":"flex","alignItems":"center",}
+A.link.flex '' [1374, 16, 16]  https://www.youtube.com/@stickitup
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","width":"16px","height":"16px","display":"flex","alignItems":"center","justifyContent":"center",}
+SPAN.visually-hidden 'YouTube' [1382, 1, 1]  
+     {"fontSize":"16px","color":"rgb(255, 255, 255)","margin":"-1px","width":"1px","height":"1px","display":"block",}
+DIV.footer__content-bottom.color-background-1 '' [0, 1440, 63]  
+     {"fontSize":"16px","color":"rgb(0, 0, 0)","backgroundColor":"rgb(255, 255, 255)","padding":"25px 0px","width":"1440px","height":"63.1953px","display":"block",}
+DIV.page-width.flex '' [0, 1440, 13]  
+     {"fontSize":"16px","color":"rgb(0, 0, 0)","padding":"0px 50px","width":"1440px","height":"13.1953px","maxWidth":"1600px","gap":"15px","display":"flex",}
+SPAN.visually-hidden 'Payment methods' [49, 1, 1]  
+     {"fontSize":"16px","color":"rgb(0, 0, 0)","margin":"-1px","width":"1px","height":"1px","display":"block",}
+SMALL.copyright__content '© 2026,' [1209, 91, 13]  
+     {"fontSize":"10px","lineHeight":"11px","color":"rgb(0, 0, 0)","display":"inline","textAlign":"end",}
+A. 'STICK IT UP' [1247, 53, 13]  /
+     {"fontSize":"10px","lineHeight":"11px","color":"rgb(0, 0, 0)","display":"inline","textAlign":"end",}
+SMALL.copyright__content '' [1302, 88, 13]  
+     {"fontSize":"10px","lineHeight":"11px","color":"rgb(0, 0, 0)","display":"inline","textAlign":"end",}
+A. 'Powered by Shopify' [1302, 88, 13]  https://www.shopify.com?utm_campaign=poweredby&utm_medium=shopify&utm_source=onlinestore
+     {"fontSize":"10px","lineHeight":"11px","color":"rgb(0, 0, 0)","display":"inline","textAlign":"end",}

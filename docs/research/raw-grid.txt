@@ -1,0 +1,5 @@
+ul.
+   [50, 1019, 1340, 18262]
+  {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(0, 0, 0)","margin":"40px 0px 20px","width":"1340px","height":"18262.2px","display":"flex","flexDirection":"row","gap":"34px 31px","opacity":"1","objectFit":"fill"}
+  li.grid__item [50, 1019, 312, 418]
+    {"fontSize":"16px","fontWeight":"500","lineHeight":"25.6px","color":"rgb(0, 0, 0)","width":"311.75px","height":"418.141px","display":"list-item","flexDirection":"row","opacity":"1","objectFit":"fill"}
