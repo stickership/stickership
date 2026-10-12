@@ -160,3 +160,7 @@ insert into public.products (slug, title, image, price, compare_at, theme, style
 ('compass-sticker', 'Compass Sticker', '/products/158.jpg', 10, 79, 'Humor & Attitude', 'Bold & Loud', 'Stickers', 158),
 ('kings-always-wear-their-crown-sticker', 'Kings Always Wear Their Crown Sticker', '/products/159.jpg', 15, 79, 'Humor & Attitude', 'Bold & Loud', 'Stickers', 159)
 on conflict (slug) do nothing;
+update public.products set theme = 'Humor & Attitude' where type = 'Mystery Box';
+update public.products set theme = 'Spiritual & Faith' where slug = 'jay-hanuman-sticker';
+update public.products set theme = 'Cars, Bikes & Racing' where slug in ('porshe-911-sticker','formula-1-sticker','gt-r-sticker','full-throttle-sticker','smoke-tires-not-drugs-sticker','drop-a-gear-sticker','not-fast-just-loud-sticker','max-verstappen-sticker');
+update public.products set theme = 'Anime & Manga' where slug in ('saitama-peace-sticker','actionkamen-chan-sticker','shy-chan-sticker');
