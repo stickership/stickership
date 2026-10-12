@@ -1,6 +1,6 @@
 "use server";
 
-import { updateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/admin";
 
@@ -39,7 +39,7 @@ export async function saveProduct(input: ProductInput): Promise<Result> {
     : supabase.from("products").insert(row).select("id").single();
   const { data, error } = await query;
   if (error) return { ok: false, error: error.code === "23505" ? "That slug is already used by another sticker" : error.message };
-  updateTag("products");
+  revalidateTag("products", { expire: 0 });
   return { ok: true, id: data.id };
 }
 
@@ -64,7 +64,7 @@ export async function bulkProducts(input: z.input<typeof bulkSchema>): Promise<R
       : await table.update(op.kind === "price" ? { price: op.price, compare_at: op.compare_at } : { in_stock: op.in_stock }).in("id", ids);
   if (error)
     return { ok: false, error: error.code === "23503" ? "Some stickers are in past orders and can't be deleted. Mark them out of stock instead." : error.message };
-  updateTag("products");
+  revalidateTag("products", { expire: 0 });
   return { ok: true };
 }
 

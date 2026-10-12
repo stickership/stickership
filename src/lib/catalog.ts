@@ -1,6 +1,6 @@
 import "server-only";
 import { createClient } from "@supabase/supabase-js";
-import { cacheLife, cacheTag } from "next/cache";
+import { unstable_cache } from "next/cache";
 import { PAGE_SIZE } from "@/lib/format";
 
 export type Product = {
@@ -76,26 +76,28 @@ export async function searchProducts(term: string) {
 
 export type FacetCount = { facet: string; value: string; count: number };
 
-export async function facetCounts() {
-  "use cache";
-  cacheLife("minutes");
-  cacheTag("products");
-  const { data, error } = await db().rpc("facet_counts");
-  if (error) throw error;
-  return data as FacetCount[];
-}
+export const facetCounts = unstable_cache(
+  async () => {
+    const { data, error } = await db().rpc("facet_counts");
+    if (error) throw error;
+    return data as FacetCount[];
+  },
+  ["facet-counts"],
+  { revalidate: 300, tags: ["products"] },
+);
 
-export async function heroProducts() {
-  "use cache";
-  cacheLife("hours");
-  cacheTag("products");
-  const { data, error } = await db()
-    .from("products")
-    .select(COLUMNS)
-    .eq("type", "Stickers")
-    .eq("in_stock", true)
-    .order("position")
-    .limit(16);
-  if (error) throw error;
-  return data as Product[];
-}
+export const heroProducts = unstable_cache(
+  async () => {
+    const { data, error } = await db()
+      .from("products")
+      .select(COLUMNS)
+      .eq("type", "Stickers")
+      .eq("in_stock", true)
+      .order("position")
+      .limit(16);
+    if (error) throw error;
+    return data as Product[];
+  },
+  ["hero-products"],
+  { revalidate: 3600, tags: ["products"] },
+);
