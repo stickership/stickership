@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
@@ -9,6 +9,8 @@ const btn = "h-12 rounded-md bg-black font-heading font-bold text-brand-yellow d
 
 export function LoginForm() {
   const router = useRouter();
+  const next = useSearchParams().get("next");
+  const dest = next?.startsWith("/") && !next.startsWith("//") ? next : "/account";
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
@@ -49,7 +51,7 @@ export function LoginForm() {
         run(
           () => createClient().auth.verifyOtp({ email, token, type: "email" }),
           () => {
-            router.replace("/account");
+            router.replace(dest);
             router.refresh();
           },
         );

@@ -1,6 +1,6 @@
 import "server-only";
 import { createClient } from "@supabase/supabase-js";
-import { cacheLife } from "next/cache";
+import { cacheLife, cacheTag } from "next/cache";
 import { PAGE_SIZE } from "@/lib/format";
 
 export type Product = {
@@ -79,6 +79,7 @@ export type FacetCount = { facet: string; value: string; count: number };
 export async function facetCounts() {
   "use cache";
   cacheLife("minutes");
+  cacheTag("products");
   const { data, error } = await db().rpc("facet_counts");
   if (error) throw error;
   return data as FacetCount[];
@@ -87,6 +88,7 @@ export async function facetCounts() {
 export async function heroProducts() {
   "use cache";
   cacheLife("hours");
+  cacheTag("products");
   const { data, error } = await db()
     .from("products")
     .select(COLUMNS)

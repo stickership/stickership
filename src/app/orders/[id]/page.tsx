@@ -14,6 +14,8 @@ export const metadata = { title: "Your order | stickership", robots: { index: fa
 const LABEL: Record<string, [string, string]> = {
   pending: ["Awaiting payment", "bg-amber-100 text-amber-800"],
   paid: ["Paid · preparing to ship", "bg-green-100 text-green-800"],
+  shipped: ["Shipped · on the way", "bg-violet-100 text-violet-800"],
+  delivered: ["Delivered", "bg-green-100 text-green-800"],
   failed: ["Payment failed", "bg-red-100 text-red-800"],
   cancelled: ["Cancelled", "bg-black/10 text-black/70"],
 };
@@ -42,7 +44,7 @@ async function Content({ params, searchParams }: PageProps<"/orders/[id]">) {
   const db = admin();
   let { data: order } = await db
     .from("orders")
-    .select("id, email, name, address, subtotal, shipping, total, status, cf_order_id, created_at, order_items(product_id, title, image, price, qty)")
+    .select("id, email, name, address, subtotal, shipping, total, status, cf_order_id, courier, tracking_no, created_at, order_items(product_id, title, image, price, qty)")
     .eq("id", id)
     .maybeSingle();
   if (!order) notFound();
@@ -61,11 +63,16 @@ async function Content({ params, searchParams }: PageProps<"/orders/[id]">) {
 
   return (
     <>
-      {order.status === "paid" && <ClearCart />}
+      {order.status !== "pending" && order.status !== "cancelled" && order.status !== "failed" && <ClearCart />}
       <div className="mx-auto max-w-[720px] py-12">
         <p className="text-sm text-black/60">Order #{order.id.slice(0, 8).toUpperCase()}</p>
         <h1 className="mt-1 font-heading text-3xl font-bold">{order.status === "paid" ? `Thanks, ${order.name.split(" ")[0]}!` : "Order status"}</h1>
         <span className={`mt-3 inline-block rounded-full px-3 py-1 text-sm font-semibold ${tone}`}>{label}</span>
+        {order.tracking_no && (
+          <p className="mt-3 text-sm">
+            Shipped via <b>{order.courier}</b> · tracking number <b className="font-mono">{order.tracking_no}</b>
+          </p>
+        )}
         {order.status === "failed" && (
           <p className="mt-3 text-sm">
             Your payment didn&apos;t go through. No money was taken.{" "}

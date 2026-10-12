@@ -28,3 +28,8 @@ npm run build
 ```
 
 Products are edited in the Supabase table editor (`products`).
+
+## Admin panel
+
+`/admin` — dashboard, products (create/edit/upload/bulk), orders (ship/deliver/cancel), customers, subscribers (CSV), admins.
+Access: log in at `/login` with an email listed in `admin_invites` (it's promoted automatically). Add more admins from `/admin/admins`.

@@ -5,12 +5,13 @@ import { LoginForm } from "./LoginForm";
 
 export const metadata = { title: "Log in | stickership" };
 
-async function Content() {
+async function Content({ searchParams }: PageProps<"/login">) {
+  const next = (await searchParams).next;
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (user) redirect("/account");
+  if (user) redirect(typeof next === "string" && next.startsWith("/") && !next.startsWith("//") ? next : "/account");
   return (
     <>
       <div className="mx-auto max-w-[420px] py-16">
@@ -22,10 +23,10 @@ async function Content() {
   );
 }
 
-export default function Page() {
+export default function Page(props: PageProps<"/login">) {
   return (
     <Shell>
-      <Content />
+      <Content {...props} />
     </Shell>
   );
 }
