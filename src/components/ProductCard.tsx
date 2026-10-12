@@ -10,47 +10,45 @@ export function ProductCard({ product }: { product: Product }) {
   const price = Number(product.price);
   const compareAt = Number(product.compare_at ?? 0);
   const href = `/products/${slug}`;
-  const save = compareAt > price ? rs(compareAt - price) : null;
+  const off = compareAt > price ? Math.round((1 - price / compareAt) * 100) : 0;
   return (
-    <div className="group relative transition-transform duration-500 lg:hover:-translate-y-[13px]">
-      <Link href={href} className="relative block aspect-square overflow-hidden bg-media">
+    <div className="group flex h-full flex-col">
+      <Link href={href} className="relative block aspect-square overflow-hidden rounded-2xl bg-media">
         <Image
           src={image}
           alt={title}
           fill
           sizes="(min-width:990px) 25vw, (min-width:750px) 33vw, 50vw"
-          className="object-cover transition-transform duration-500 lg:group-hover:scale-[1.03]"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
+        {off > 0 && (
+          <span className="absolute left-3 top-3 rounded-full bg-[rgb(220,38,38)] px-2.5 py-1 font-sans text-[11px] font-extrabold leading-none text-white md:text-xs">
+            {off}% OFF
+          </span>
+        )}
+        {!product.in_stock && (
+          <span className="absolute inset-x-0 bottom-0 bg-black/70 py-1.5 text-center font-heading text-xs font-bold uppercase text-white">Sold out</span>
+        )}
         <span
           aria-hidden
-          className="absolute bottom-[15px] left-1/2 hidden size-11 -translate-x-1/2 items-center justify-center rounded-[14px] bg-white/85 p-3 text-black opacity-0 shadow-[0_1px_1px_0_rgba(0,0,0,0.1)] transition-opacity duration-300 lg:flex lg:group-hover:opacity-100"
+          className="absolute bottom-3 right-3 hidden size-10 items-center justify-center rounded-xl bg-white/90 text-black opacity-0 shadow-sm transition-opacity duration-300 group-hover:opacity-100 lg:flex"
         >
           <EyeIcon width={18} height={18} />
         </span>
       </Link>
-      {save && <span className="absolute -right-[10px] top-2 z-[2] rounded-[16px] border border-[rgba(220,38,38,0.25)] bg-[rgb(254,242,242)] px-[13px] py-[7px] font-sans text-[10px] font-extrabold leading-[10px] tracking-[0.3px] text-[rgb(220,38,38)]">
-        Save {save}
-      </span>}
-      <div className="mt-5">
-        <h3 className="my-[5px] font-heading text-sm font-bold leading-[18.2px] tracking-[-0.072px] text-black md:text-lg md:leading-[23.4px]">
-          <Link href={href}>{title}</Link>
-        </h3>
-        <div className="mt-[10px] flex flex-col">
-          {save && (
-            <div className="flex items-center">
-              <s className="font-sans text-sm font-medium leading-[22.4px] text-strike">{rs(compareAt)}</s>
-              <span className="ml-[5px] rounded-[3px] bg-black/5 px-2 py-1 font-sans text-[10px] font-medium leading-[10px] text-black">
-                -{save}
-              </span>
-            </div>
-          )}
-          <span className="font-sans text-base font-semibold leading-[25.6px] text-sale">{rs(price)}</span>
-        </div>
+      <h3 className="mt-3 line-clamp-2 font-heading text-sm font-bold leading-[18.2px] tracking-[-0.072px] text-black md:mt-4 md:text-lg md:leading-[23.4px]">
+        <Link href={href} className="hover:underline">
+          {title}
+        </Link>
+      </h3>
+      <div className="mt-1.5 flex flex-wrap items-baseline gap-x-2 font-sans">
+        <span className="text-base font-bold text-black md:text-lg">{rs(price)}</span>
+        {off > 0 && <s className="text-xs font-medium text-strike md:text-sm">{rs(compareAt)}</s>}
       </div>
-      <div className="mt-[10px] flex justify-center transition-[opacity,transform] duration-300 lg:absolute lg:inset-x-0 lg:top-full z-[2] lg:translate-y-[10px] lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+      <div className="mt-auto pt-3">
         <AddToCart
           product={product}
-          className="h-[37px] w-full rounded-md border border-black bg-black/90 px-[17px] py-[9px] font-heading text-sm font-bold leading-[16.8px] text-brand-yellow shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] lg:w-[250px]"
+          className="h-10 w-full rounded-lg border border-black bg-black font-heading text-sm font-bold text-brand-yellow transition-colors duration-200 hover:bg-brand-yellow hover:text-black"
         />
       </div>
     </div>

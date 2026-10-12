@@ -41,7 +41,7 @@ export function ProductGrid({ initial, filters }: { initial: Product[]; filters:
 
   return (
     <>
-      <ul className="mb-5 mt-[30px] flex flex-wrap gap-x-[17px] gap-y-[34px] md:mt-10 md:gap-x-[31px]">
+      <ul className="mb-16 mt-[30px] flex flex-wrap gap-x-[17px] gap-y-10 md:mt-10 md:gap-x-[31px] md:gap-y-12">
         {items.map((p) => (
           <li key={p.id} className="w-[calc((100%-17px)/2)] md:w-[calc((100%-62px)/3)] lg:w-[calc((100%-93px)/4)]">
             <ProductCard product={p} />

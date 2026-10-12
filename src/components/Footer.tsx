@@ -30,7 +30,7 @@ export function Footer() {
   return (
     <footer className="bg-black font-sans text-white">
 
-      <section className={`${wrap} py-2`}>
+      <section className={`${wrap} pt-16 pb-2`}>
         <div className="flex flex-col items-center">
           <h2 className="text-center font-heading text-[36px] font-bold leading-[43px] tracking-[-1.44px] md:text-[48px] md:leading-[57.6px]">
             Join the Tribe
