@@ -6,9 +6,8 @@ const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"] });
 const bricolage = Bricolage_Grotesque({ variable: "--font-bricolage", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Buy All Stickers Online in India | STICK IT UP",
-  description: "Premium vinyl stickers starting at ₹10. India's largest sticker brand.",
-  icons: { apple: "/seo/apple-touch-icon.png" },
+  title: "Buy Vinyl Stickers Online in India | stickership",
+  description: "Premium vinyl stickers starting at ₹10. Waterproof, fade-proof, shipped in 24 hrs.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

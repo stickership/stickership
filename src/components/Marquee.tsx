@@ -20,8 +20,8 @@ export function Marquee() {
           aria-hidden={i === 1 || undefined}
           className="flex min-w-full shrink-0 animate-[marquee-gap_12s_linear_infinite] items-center justify-around gap-[30px]"
         >
-          <span className={bricolage}>🔥 India&apos;s Largest Sticker Brand</span>
-          <span className={outfit} style={gradient}>💚 12 Lakh+ Happy Customers</span>
+          <span className={bricolage}>🔥 Premium Vinyl Stickers</span>
+          <span className={outfit} style={gradient}>💚 Waterproof &amp; Fade-proof</span>
           <span className={bricolage}>🇮🇳 Made in India</span>
           <span className={outfit}>🚚 Ships in 24 Hrs</span>
         </div>

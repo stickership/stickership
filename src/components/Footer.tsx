@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { FacebookIcon, HomeIcon, InstagramIcon, MailIcon, PhoneIcon, YoutubeIcon } from "@/components/icons";
+import { FacebookIcon, InstagramIcon, MailIcon, YoutubeIcon } from "@/components/icons";
 
 const quick = ["Stickers", "Mini Sticker Sheets", "Laptop Skins", "Credit Card Skins", "Our Story", "Track Your Order"];
 const info = [
@@ -14,15 +13,11 @@ const info = [
   "Blog",
   "Contact Us",
 ];
-const contact = [
-  { Icon: HomeIcon, text: "STICK IT UP, R.T. Road, behind Rajshree Cinema, Dahisar East" },
-  { Icon: PhoneIcon, text: "+91 9867925615" },
-  { Icon: MailIcon, text: "wecare@stickitup.xyz" },
-];
+const contact = [{ Icon: MailIcon, text: "support@stickership.com" }];
 const social = [
-  { Icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/stickitup.xyz/" },
-  { Icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/stickitup.xyz/" },
-  { Icon: YoutubeIcon, label: "YouTube", href: "https://www.youtube.com/" },
+  { Icon: FacebookIcon, label: "Facebook", href: "#" },
+  { Icon: InstagramIcon, label: "Instagram", href: "#" },
+  { Icon: YoutubeIcon, label: "YouTube", href: "#" },
 ];
 
 const wrap = "mx-auto w-full max-w-[1600px] px-[15px] md:px-[50px]";
@@ -32,14 +27,6 @@ const link = "hover:underline";
 export function Footer() {
   return (
     <footer className="bg-black font-sans text-white">
-      <Image
-        src="/images/footer-banner.jpg"
-        alt="Stick It Up mascots"
-        width={1759}
-        height={454}
-        sizes="100vw"
-        className="aspect-[1759/454] w-full bg-black object-cover"
-      />
 
       <section className={`${wrap} py-2`}>
         <div className="flex flex-col items-center">
@@ -75,8 +62,8 @@ export function Footer() {
       <div className="pt-[52px]">
         <div className={`${wrap} grid gap-10 pb-[50px] md:grid-cols-3 md:gap-x-7 md:gap-y-[60px]`}>
           <div>
-            <Link href="/" className="mx-auto block w-[180px]">
-              <Image src="/images/logo.png" alt="Stick It Up" width={180} height={78} className="h-auto w-[180px]" />
+            <Link href="/" className="font-heading text-[40px] leading-none font-extrabold tracking-[-1.5px] text-brand-yellow">
+              stickership
             </Link>
             <h2 className={`${h} mt-[26px] mb-[30px]`}>Get in touch</h2>
             <ul className="flex flex-col gap-2.5">
@@ -145,10 +132,7 @@ export function Footer() {
           <div className={`${wrap} flex justify-end`}>
             <p className="text-[10px] leading-[11px]">
               © 2026,{" "}
-              <Link href="/" className={link}>STICK IT UP</Link>{" "}
-              <a href="https://www.shopify.com" target="_blank" rel="noopener noreferrer" className={link}>
-                Powered by Shopify
-              </a>
+              <Link href="/" className={link}>stickership</Link>
             </p>
           </div>
         </div>
