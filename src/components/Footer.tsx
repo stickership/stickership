@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MailIcon } from "@/components/icons";
 import { NewsletterForm } from "@/components/NewsletterForm";
@@ -44,7 +45,8 @@ export function Footer() {
       <div className="pt-[52px]">
         <div className={`${wrap} grid gap-10 pb-[50px] md:grid-cols-3 md:gap-x-7 md:gap-y-[60px]`}>
           <div>
-            <Link href="/" className="font-heading text-[40px] leading-none font-extrabold tracking-[-1.5px] text-brand-yellow">
+            <Link href="/" className="flex items-center gap-3 font-heading text-[40px] leading-none font-extrabold tracking-[-1.5px] text-brand-yellow">
+              <Image src="/logo.jpg" alt="" width={500} height={500} className="size-14 rounded-xl" />
               stickership
             </Link>
             <h2 className={`${h} mt-[26px] mb-[30px]`}>Get in touch</h2>

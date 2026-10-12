@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AccountIcon, SupportIcon } from "@/components/icons";
 import { CartDrawer } from "@/components/CartDrawer";
@@ -10,7 +11,8 @@ export function Header() {
       <div className="mx-auto flex h-[52px] max-w-[1600px] items-center justify-between px-[5px] md:px-[50px] lg:h-[70px]">
         <div className="flex items-center">
           <MobileMenu />
-          <Link href="/" className="font-heading text-[26px] leading-none font-extrabold tracking-[-1px] text-brand-yellow lg:text-[32px]">
+          <Link href="/" className="flex items-center gap-2 font-heading text-[26px] leading-none font-extrabold tracking-[-1px] text-brand-yellow lg:gap-3 lg:text-[32px]">
+            <Image src="/logo.jpg" alt="" width={500} height={500} priority className="size-9 rounded-lg lg:size-11" />
             stickership
           </Link>
         </div>
