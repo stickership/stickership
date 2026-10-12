@@ -32,7 +32,7 @@ export default function Home(props: PageProps<"/">) {
       <main>
         <HeroBanner />
         <Marquee />
-        <div className="mx-auto max-w-[1600px] px-[15px] pt-[3px] md:pt-[5px] md:px-[50px]">
+        <div id="shop" className="mx-auto max-w-[1600px] scroll-mt-4 px-[15px] pt-[3px] md:pt-[5px] md:px-[50px]">
           <Suspense fallback={<div className="h-[600px]" />}>
             <Collection {...props} />
           </Suspense>

@@ -83,3 +83,17 @@ export async function facetCounts() {
   if (error) throw error;
   return data as FacetCount[];
 }
+
+export async function heroProducts() {
+  "use cache";
+  cacheLife("hours");
+  const { data, error } = await db()
+    .from("products")
+    .select(COLUMNS)
+    .eq("type", "Stickers")
+    .eq("in_stock", true)
+    .order("position")
+    .limit(16);
+  if (error) throw error;
+  return data as Product[];
+}
