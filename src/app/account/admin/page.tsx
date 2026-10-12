@@ -49,7 +49,7 @@ export default async function Dashboard() {
         <section className={card}>
           <div className="mb-3 flex items-center justify-between">
             <h2 className="font-heading text-lg font-bold">Latest orders</h2>
-            <Link href="/admin/orders" className="text-sm underline">
+            <Link href="/account/admin/orders" className="text-sm underline">
               All orders
             </Link>
           </div>
@@ -59,7 +59,7 @@ export default async function Dashboard() {
             <ul className="divide-y divide-black/5">
               {recent.map((o) => (
                 <li key={o.id}>
-                  <Link href={`/admin/orders/${o.id}`} className="flex items-center gap-3 py-3 text-sm hover:bg-black/[0.02]">
+                  <Link href={`/account/admin/orders/${o.id}`} className="flex items-center gap-3 py-3 text-sm hover:bg-black/[0.02]">
                     <span className="w-20 font-mono text-xs">#{o.id.slice(0, 8).toUpperCase()}</span>
                     <span className="min-w-0 flex-1 truncate">{o.name}</span>
                     <StatusPill status={o.status} />
@@ -90,15 +90,15 @@ export default async function Dashboard() {
             )}
           </section>
           <section className={`${card} grid grid-cols-3 gap-3 text-center`}>
-            <Link href="/admin/products">
+            <Link href="/account/admin/products">
               <p className="font-heading text-2xl font-bold">{s.products}</p>
               <p className="text-xs text-black/50">products</p>
             </Link>
-            <Link href="/admin/products?stock=out">
+            <Link href="/account/admin/products?stock=out">
               <p className="font-heading text-2xl font-bold">{s.out_of_stock}</p>
               <p className="text-xs text-black/50">out of stock</p>
             </Link>
-            <Link href="/admin/subscribers">
+            <Link href="/account/admin/subscribers">
               <p className="font-heading text-2xl font-bold">{s.subscribers}</p>
               <p className="text-xs text-black/50">subscribers</p>
             </Link>

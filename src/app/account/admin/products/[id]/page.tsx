@@ -4,7 +4,7 @@ import { PageTitle } from "../../_components/ui";
 import { ProductForm } from "../ProductForm";
 import { productOptions } from "../options";
 
-export default async function EditProduct({ params }: PageProps<"/admin/products/[id]">) {
+export default async function EditProduct({ params }: PageProps<"/account/admin/products/[id]">) {
   const { supabase } = await requireAdmin();
   const { id } = await params;
   if (!/^[0-9a-f-]{36}$/.test(id)) notFound();

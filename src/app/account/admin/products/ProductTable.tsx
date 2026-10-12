@@ -101,7 +101,7 @@ export function ProductTable({ products }: { products: Row[] }) {
                   <input type="checkbox" aria-label={`Select ${p.title}`} checked={sel.includes(p.id)} onChange={() => toggle(p.id)} />
                 </td>
                 <td className="py-2">
-                  <Link href={`/admin/products/${p.id}`} className="flex items-center gap-3 hover:underline">
+                  <Link href={`/account/admin/products/${p.id}`} className="flex items-center gap-3 hover:underline">
                     <span className="relative size-11 shrink-0 overflow-hidden rounded-lg bg-media">
                       <Image src={p.image} alt="" fill sizes="44px" className="object-cover" />
                     </span>

@@ -23,9 +23,13 @@ export function ProductForm({ product, options }: { product?: ProductInput & { i
   );
   const [slugTouched, setSlugTouched] = useState(!!product);
   const [error, setError] = useState("");
+  const [saved, setSaved] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [pending, start] = useTransition();
-  const set = <K extends keyof ProductInput>(k: K, v: ProductInput[K]) => setF((cur) => ({ ...cur, [k]: v }));
+  const set = <K extends keyof ProductInput>(k: K, v: ProductInput[K]) => {
+    setSaved(false);
+    setF((cur) => ({ ...cur, [k]: v }));
+  };
 
   async function upload(file: File) {
     if (file.size > 5 * 1024 * 1024) return setError("Image must be under 5 MB");
@@ -44,9 +48,12 @@ export function ProductForm({ product, options }: { product?: ProductInput & { i
   function submit(e: React.FormEvent) {
     e.preventDefault();
     start(async () => {
+      setSaved(false);
       const res = await saveProduct({ ...f, id: product?.id });
       if (!res.ok) return setError(res.error);
-      router.push("/admin/products");
+      setError("");
+      if (!product) return router.replace(`/account/admin/products/${res.id}`);
+      setSaved(true);
       router.refresh();
     });
   }
@@ -129,7 +136,7 @@ export function ProductForm({ product, options }: { product?: ProductInput & { i
         {error && <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700 md:col-span-2">{error}</p>}
         <div className="flex gap-2 md:col-span-2">
           <button disabled={pending || uploading} className={btn}>
-            {pending ? "Saving…" : product ? "Save changes" : "Create sticker"}
+            {pending ? "Saving…" : saved ? "Saved ✓" : product ? "Save changes" : "Create sticker"}
           </button>
           <button type="button" onClick={() => router.back()} className={btnGhost}>
             Cancel

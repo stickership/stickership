@@ -5,7 +5,7 @@ import { RemoveButton } from "./RemoveButton";
 
 const PER_PAGE = 100;
 
-export default async function SubscribersPage({ searchParams }: PageProps<"/admin/subscribers">) {
+export default async function SubscribersPage({ searchParams }: PageProps<"/account/admin/subscribers">) {
   const { supabase } = await requireAdmin();
   const page = Math.max(0, Number((await searchParams).page) || 0);
   const { data: subs, count } = await supabase
@@ -19,7 +19,7 @@ export default async function SubscribersPage({ searchParams }: PageProps<"/admi
     <>
       <PageTitle
         action={
-          <a href="/admin/subscribers/export" className={btn}>
+          <a href="/account/admin/subscribers/export" className={btn}>
             Export CSV
           </a>
         }
@@ -44,12 +44,12 @@ export default async function SubscribersPage({ searchParams }: PageProps<"/admi
       {pages > 1 && (
         <div className="mt-4 flex justify-center gap-3">
           {page > 0 && (
-            <Link href={`/admin/subscribers?page=${page - 1}`} className={btnGhost}>
+            <Link href={`/account/admin/subscribers?page=${page - 1}`} className={btnGhost}>
               ← Prev
             </Link>
           )}
           {page + 1 < pages && (
-            <Link href={`/admin/subscribers?page=${page + 1}`} className={btnGhost}>
+            <Link href={`/account/admin/subscribers?page=${page + 1}`} className={btnGhost}>
               Next →
             </Link>
           )}

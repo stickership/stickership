@@ -14,7 +14,7 @@ export const requireAdmin = cache(async () => {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect("/login?next=/admin");
+  if (!user) redirect("/login?next=/account/admin");
   if (!isAdmin(user)) notFound();
   return { supabase, user };
 });

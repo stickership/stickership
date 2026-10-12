@@ -1,19 +1,18 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Shell } from "@/components/Shell";
 import { createClient } from "@/lib/supabase/server";
-import { signOut } from "@/app/actions";
 import { rs } from "@/lib/format";
 import { isAdmin } from "@/lib/admin";
 
 export const metadata = { title: "My account | stickership" };
 
-async function Content() {
+export default async function AccountPage() {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) redirect("/login");
+  if (isAdmin(user)) redirect("/account/admin");
 
   const { data: orders } = await supabase
     .from("orders")
@@ -22,31 +21,8 @@ async function Content() {
     .order("created_at", { ascending: false })
     .limit(50);
 
-  const tab = "flex shrink-0 items-center gap-2 rounded-2xl border-2 px-4 py-2.5 text-sm font-bold transition-colors";
-
   return (
-    <div className="mx-auto grid max-w-[1040px] gap-8 py-10 md:grid-cols-[230px_1fr] md:py-14">
-      <aside className="md:sticky md:top-24 md:self-start">
-        <p className="truncate font-mono text-xs text-ink/60">{user.email}</p>
-        <nav className="mt-3 flex gap-2 overflow-x-auto pb-1 md:flex-col md:overflow-visible">
-          <Link href="/account" aria-current="page" className={`${tab} border-ink bg-ink text-slime`}>
-            📦 My orders
-          </Link>
-          <Link href="/track" className={`${tab} border-ink/15 bg-white hover:border-ink`}>
-            🔎 Track an order
-          </Link>
-          {isAdmin(user) && (
-            <Link href="/admin" className={`${tab} border-ink bg-pop text-ink shadow-[3px_3px_0_var(--color-ink)] hover:-translate-y-0.5`}>
-              🛠 Admin panel
-            </Link>
-          )}
-          <form action={signOut} className="md:mt-4">
-            <button className={`${tab} w-full border-ink/15 bg-transparent text-ink/70 hover:border-ink hover:text-ink`}>Log out</button>
-          </form>
-        </nav>
-      </aside>
-
-      <section className="min-w-0">
+    <>
         <h1 className="font-display text-5xl leading-none">my orders</h1>
         {!orders?.length ? (
           <div className="card mt-6 flex flex-col items-start gap-4 p-6">
@@ -75,15 +51,7 @@ async function Content() {
             ))}
           </ul>
         )}
-      </section>
-    </div>
+    </>
   );
 }
 
-export default function Page() {
-  return (
-    <Shell>
-      <Content />
-    </Shell>
-  );
-}

@@ -1,7 +1,7 @@
-export const card = "rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)]";
-export const input = "h-10 w-full rounded-lg border border-black/15 bg-white px-3 text-sm outline-none focus:border-black";
-export const btn = "inline-flex h-10 items-center justify-center rounded-lg bg-black px-4 text-sm font-bold text-brand-yellow disabled:opacity-50";
-export const btnGhost = "inline-flex h-10 items-center justify-center rounded-lg border border-black/15 bg-white px-4 text-sm font-semibold disabled:opacity-50";
+export const card = "rounded-3xl border-2 border-ink bg-white p-5";
+export const input = "field h-10 text-sm";
+export const btn = "btn h-10 px-4 text-sm";
+export const btnGhost = "inline-flex h-10 items-center justify-center rounded-full border-2 border-ink bg-white px-4 text-sm font-bold disabled:opacity-50";
 
 const TONES: Record<string, string> = {
   pending: "bg-amber-100 text-amber-800",
@@ -19,7 +19,7 @@ export function StatusPill({ status }: { status: string }) {
 export function PageTitle({ children, action }: { children: React.ReactNode; action?: React.ReactNode }) {
   return (
     <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-      <h1 className="font-heading text-2xl font-bold tracking-[-0.5px] md:text-3xl">{children}</h1>
+      <h1 className="font-display text-4xl leading-none md:text-5xl">{children}</h1>
       {action}
     </div>
   );

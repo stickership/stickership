@@ -5,7 +5,7 @@ import { btnGhost, card, input, PageTitle, when } from "../_components/ui";
 
 const PER_PAGE = 50;
 
-export default async function CustomersPage({ searchParams }: PageProps<"/admin/customers">) {
+export default async function CustomersPage({ searchParams }: PageProps<"/account/admin/customers">) {
   const { supabase } = await requireAdmin();
   const sp = await searchParams;
   const q = typeof sp.q === "string" ? sp.q.trim().slice(0, 80) : "";
@@ -13,7 +13,7 @@ export default async function CustomersPage({ searchParams }: PageProps<"/admin/
   const { data: rows } = await supabase.rpc("admin_customers", { q, lim: PER_PAGE + 1, off: page * PER_PAGE });
   const customers = (rows ?? []).slice(0, PER_PAGE) as { email: string; name: string; phone: string; orders: number; spent: number; last_order: string }[];
   const more = (rows ?? []).length > PER_PAGE;
-  const link = (p: number) => `/admin/customers?${new URLSearchParams({ ...(q && { q }), page: String(p) })}`;
+  const link = (p: number) => `/account/admin/customers?${new URLSearchParams({ ...(q && { q }), page: String(p) })}`;
 
   return (
     <>
@@ -45,7 +45,7 @@ export default async function CustomersPage({ searchParams }: PageProps<"/admin/
               <tr key={c.email} className="border-b border-black/5 last:border-0">
                 <td className="px-4 py-3">
                   <p className="font-semibold">{c.name}</p>
-                  <Link href={`/admin/orders?q=${encodeURIComponent(c.email)}`} className="text-xs text-black/50 underline">
+                  <Link href={`/account/admin/orders?q=${encodeURIComponent(c.email)}`} className="text-xs text-black/50 underline">
                     {c.email}
                   </Link>
                 </td>

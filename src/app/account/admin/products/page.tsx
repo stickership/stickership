@@ -5,7 +5,7 @@ import { ProductTable } from "./ProductTable";
 
 const PER_PAGE = 50;
 
-export default async function ProductsPage({ searchParams }: PageProps<"/admin/products">) {
+export default async function ProductsPage({ searchParams }: PageProps<"/account/admin/products">) {
   const { supabase } = await requireAdmin();
   const sp = await searchParams;
   const q = typeof sp.q === "string" ? sp.q.trim().slice(0, 80) : "";
@@ -22,13 +22,13 @@ export default async function ProductsPage({ searchParams }: PageProps<"/admin/p
   if (stock) query = query.eq("in_stock", stock === "in");
   const { data: products, count } = await query;
   const pages = Math.ceil((count ?? 0) / PER_PAGE);
-  const link = (p: number) => `/admin/products?${new URLSearchParams({ ...(q && { q }), ...(stock && { stock }), page: String(p) })}`;
+  const link = (p: number) => `/account/admin/products?${new URLSearchParams({ ...(q && { q }), ...(stock && { stock }), page: String(p) })}`;
 
   return (
     <>
       <PageTitle
         action={
-          <Link href="/admin/products/new" className={btn}>
+          <Link href="/account/admin/products/new" className={btn}>
             + New sticker
           </Link>
         }

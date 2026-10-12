@@ -6,7 +6,7 @@ import { rs } from "@/lib/format";
 import { card, PageTitle, StatusPill, when } from "../../_components/ui";
 import { OrderActions } from "./OrderActions";
 
-export default async function AdminOrder({ params }: PageProps<"/admin/orders/[id]">) {
+export default async function AdminOrder({ params }: PageProps<"/account/admin/orders/[id]">) {
   const { supabase } = await requireAdmin();
   const { id } = await params;
   if (!/^[0-9a-f-]{36}$/.test(id)) notFound();
@@ -26,7 +26,7 @@ export default async function AdminOrder({ params }: PageProps<"/admin/orders/[i
 
   return (
     <>
-      <Link href="/admin/orders" className="text-sm text-black/50 hover:underline">
+      <Link href="/account/admin/orders" className="text-sm text-black/50 hover:underline">
         ← Orders
       </Link>
       <PageTitle action={<StatusPill status={o.status} />}>
@@ -43,7 +43,7 @@ export default async function AdminOrder({ params }: PageProps<"/admin/orders/[i
                   <span className="relative size-12 shrink-0 overflow-hidden rounded-lg bg-media">
                     <Image src={i.image} alt="" fill sizes="48px" className="object-cover" />
                   </span>
-                  <Link href={`/admin/products/${i.product_id}`} className="flex-1 font-semibold hover:underline">
+                  <Link href={`/account/admin/products/${i.product_id}`} className="flex-1 font-semibold hover:underline">
                     {i.title}
                   </Link>
                   <span className="text-black/50">

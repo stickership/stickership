@@ -5,7 +5,7 @@ import { btnGhost, card, input, PageTitle, StatusPill, when } from "../_componen
 
 const PER_PAGE = 50;
 
-export default async function OrdersPage({ searchParams }: PageProps<"/admin/orders">) {
+export default async function OrdersPage({ searchParams }: PageProps<"/account/admin/orders">) {
   const { supabase } = await requireAdmin();
   const sp = await searchParams;
   const status = typeof sp.status === "string" && (ORDER_STATUSES as readonly string[]).includes(sp.status) ? sp.status : "";
@@ -22,7 +22,7 @@ export default async function OrdersPage({ searchParams }: PageProps<"/admin/ord
   else if (q) query = query.ilike("email", `%${q.replace(/[%_]/g, "")}%`);
   const { data: orders, count } = await query;
   const pages = Math.ceil((count ?? 0) / PER_PAGE);
-  const link = (p: Record<string, string>) => `/admin/orders?${new URLSearchParams({ ...(status && { status }), ...(q && { q }), ...p })}`;
+  const link = (p: Record<string, string>) => `/account/admin/orders?${new URLSearchParams({ ...(status && { status }), ...(q && { q }), ...p })}`;
 
   return (
     <>
@@ -33,7 +33,7 @@ export default async function OrdersPage({ searchParams }: PageProps<"/admin/ord
         {["", ...ORDER_STATUSES].map((s) => (
           <Link
             key={s || "all"}
-            href={`/admin/orders?${new URLSearchParams({ ...(s && { status: s }), ...(q && { q }) })}`}
+            href={`/account/admin/orders?${new URLSearchParams({ ...(s && { status: s }), ...(q && { q }) })}`}
             className={`rounded-full px-3 py-1.5 text-sm font-semibold capitalize ${status === s ? "bg-black text-brand-yellow" : "bg-white text-black/70"}`}
           >
             {s || "all"}
@@ -68,7 +68,7 @@ export default async function OrdersPage({ searchParams }: PageProps<"/admin/ord
             {orders?.map((o) => (
               <tr key={o.id} className="border-b border-black/5 last:border-0 hover:bg-black/[0.02]">
                 <td className="px-4 py-3">
-                  <Link href={`/admin/orders/${o.id}`} className="font-mono text-xs font-bold underline">
+                  <Link href={`/account/admin/orders/${o.id}`} className="font-mono text-xs font-bold underline">
                     #{o.id.slice(0, 8).toUpperCase()}
                   </Link>
                 </td>
