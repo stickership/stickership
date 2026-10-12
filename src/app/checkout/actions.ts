@@ -3,8 +3,8 @@
 import { z } from "zod";
 import { admin } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
-import { createCfOrder } from "@/lib/cashfree";
-import { orderToken } from "@/lib/orders";
+import { createRzpOrder, verifyPayment } from "@/lib/razorpay";
+import { markPaid, orderToken } from "@/lib/orders";
 import { shippingFor } from "@/lib/format";
 import { rateLimit } from "@/lib/rate-limit";
 
@@ -25,7 +25,7 @@ const schema = z.object({
 
 export type CheckoutInput = z.input<typeof schema>;
 export type CheckoutResult =
-  | { ok: true; paymentSessionId: string; mode: "sandbox" | "production" }
+  | { ok: true; keyId: string; rzpOrderId: string; amount: number; orderId: string; email: string; phone: string; name: string }
   | { ok: false; error: string; removed?: string[] };
 
 export async function startCheckout(input: CheckoutInput): Promise<CheckoutResult> {
@@ -82,21 +82,36 @@ export async function startCheckout(input: CheckoutInput): Promise<CheckoutResul
     return { ok: false, error: "Couldn't create order. Try again." };
   }
 
-  const cfOrderId = `${order.id}-1`;
   try {
-    const cf = await createCfOrder({
-      cfOrderId,
-      amount: total,
-      email: d.email,
-      phone: d.phone,
-      name: d.name,
-      returnUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/orders/${order.id}?t=${orderToken(order.id)}&cf=1`,
-    });
-    await db.from("orders").update({ cf_order_id: cfOrderId }).eq("id", order.id);
-    return { ok: true, paymentSessionId: cf.payment_session_id, mode: process.env.CASHFREE_ENV === "production" ? "production" : "sandbox" };
+    const rzp = await createRzpOrder(order.id, Math.round(total * 100));
+    await db.from("orders").update({ rzp_order_id: rzp.id }).eq("id", order.id);
+    return { ok: true, keyId: process.env.RAZORPAY_KEY_ID!, rzpOrderId: rzp.id, amount: rzp.amount, orderId: order.id, email: d.email, phone: d.phone, name: d.name };
   } catch (e) {
-    console.error("cashfree create order failed", order.id, e);
+    console.error("razorpay create order failed", order.id, e);
     await db.from("orders").update({ status: "cancelled" }).eq("id", order.id);
     return { ok: false, error: "Payment couldn't start. Please try again." };
   }
+}
+
+const confirmSchema = z.object({
+  orderId: z.string().uuid(),
+  razorpay_order_id: z.string().min(1).max(64),
+  razorpay_payment_id: z.string().min(1).max(64),
+  razorpay_signature: z.string().min(1).max(128),
+});
+
+export async function confirmPayment(input: z.input<typeof confirmSchema>): Promise<{ ok: true; url: string } | { ok: false; error: string }> {
+  const parsed = confirmSchema.safeParse(input);
+  if (!parsed.success) return { ok: false, error: "Invalid payment response" };
+  const { orderId, razorpay_order_id, razorpay_payment_id, razorpay_signature } = parsed.data;
+  if (!verifyPayment(razorpay_order_id, razorpay_payment_id, razorpay_signature)) return { ok: false, error: "Payment verification failed" };
+  const db = admin();
+  const { data: order } = await db.from("orders").select("rzp_order_id, total").eq("id", orderId).maybeSingle();
+  if (!order || order.rzp_order_id !== razorpay_order_id) return { ok: false, error: "Order mismatch" };
+  try {
+    await markPaid(orderId, razorpay_payment_id, Math.round(Number(order.total) * 100));
+  } catch (e) {
+    console.error("mark paid failed", orderId, e);
+  }
+  return { ok: true, url: `/orders/${orderId}?t=${orderToken(orderId)}` };
 }

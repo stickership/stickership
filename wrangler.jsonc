@@ -6,6 +6,5 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
   "images": { "binding": "IMAGES" },
-  "observability": { "enabled": true },
-  "vars": { "CASHFREE_ENV": "sandbox" }
+  "observability": { "enabled": true }
 }

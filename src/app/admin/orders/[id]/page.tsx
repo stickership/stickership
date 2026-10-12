@@ -104,8 +104,8 @@ export default async function AdminOrder({ params }: PageProps<"/admin/orders/[i
               ))}
             </ol>
             <p className="mt-4 break-all text-xs text-black/40">
-              Cashfree order: {o.cf_order_id ?? "—"}
-              {o.cf_payment_id && <> · payment {o.cf_payment_id}</>}
+              Razorpay order: {o.rzp_order_id ?? "—"}
+              {o.rzp_payment_id && <> · payment {o.rzp_payment_id}</>}
             </p>
           </section>
         </div>

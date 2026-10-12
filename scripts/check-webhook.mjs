@@ -3,16 +3,16 @@ import assert from "node:assert/strict";
 import { register } from "node:module";
 
 register("data:text/javascript,export async function resolve(s,c,n){return s==='server-only'?{url:'data:text/javascript,',shortCircuit:true}:n(s,c)}");
-const { verifyWebhook } = await import("../src/lib/cashfree.ts");
+const { verifyWebhook, verifyPayment } = await import("../src/lib/razorpay.ts");
 
 const secret = "test-secret";
-const body = JSON.stringify({ data: { order: { order_id: "abc" } } });
-const ts = String(Date.now());
-const sig = createHmac("sha256", secret).update(ts + body).digest("base64");
+const body = JSON.stringify({ event: "payment.captured" });
+const sig = createHmac("sha256", secret).update(body).digest("hex");
+assert.equal(verifyWebhook(body, sig, secret), true, "valid webhook accepted");
+assert.equal(verifyWebhook(body + " ", sig, secret), false, "tampered webhook rejected");
+assert.equal(verifyWebhook(body, null, secret), false, "missing signature rejected");
 
-assert.equal(verifyWebhook(body, ts, sig, secret), true, "valid signature accepted");
-assert.equal(verifyWebhook(body + " ", ts, sig, secret), false, "tampered body rejected");
-assert.equal(verifyWebhook(body, String(Number(ts) + 1), sig, secret), false, "tampered timestamp rejected");
-assert.equal(verifyWebhook(body, String(Date.now() - 10 * 60_000), sig, secret), false, "stale timestamp rejected");
-assert.equal(verifyWebhook(body, null, sig, secret), false, "missing header rejected");
-console.log("webhook signature checks passed");
+const pay = createHmac("sha256", secret).update("order_1|pay_1").digest("hex");
+assert.equal(verifyPayment("order_1", "pay_1", pay, secret), true, "valid checkout signature accepted");
+assert.equal(verifyPayment("order_2", "pay_1", pay, secret), false, "swapped order rejected");
+console.log("razorpay signature checks passed");

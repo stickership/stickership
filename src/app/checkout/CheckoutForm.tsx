@@ -3,14 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { cart, cartSubtotal, useCart } from "@/lib/cart";
 import { rs, shippingFor } from "@/lib/format";
-import { startCheckout } from "./actions";
+import { confirmPayment, startCheckout } from "./actions";
+
+type RzpResponse = { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string };
 
 declare global {
   interface Window {
-    Cashfree?: (o: { mode: "sandbox" | "production" }) => { checkout: (o: { paymentSessionId: string; redirectTarget: "_self" }) => Promise<unknown> };
+    Razorpay?: new (o: Record<string, unknown>) => { open: () => void; on: (e: string, cb: () => void) => void };
   }
 }
 
@@ -24,6 +27,7 @@ const STATES = [
 ];
 
 export function CheckoutForm({ email }: { email: string }) {
+  const router = useRouter();
   const items = useCart();
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -51,12 +55,35 @@ export function CheckoutForm({ email }: { email: string }) {
       setBusy(false);
       return;
     }
-    if (!window.Cashfree) {
+    if (!window.Razorpay) {
       setError("Payment library failed to load. Refresh and try again.");
       setBusy(false);
       return;
     }
-    await window.Cashfree({ mode: res.mode }).checkout({ paymentSessionId: res.paymentSessionId, redirectTarget: "_self" });
+    const rzp = new window.Razorpay({
+      key: res.keyId,
+      order_id: res.rzpOrderId,
+      amount: res.amount,
+      currency: "INR",
+      name: "stickership",
+      description: `Order #${res.orderId.slice(0, 8).toUpperCase()}`,
+      prefill: { name: res.name, email: res.email, contact: res.phone },
+      theme: { color: "#000000" },
+      handler: async (r: RzpResponse) => {
+        const done = await confirmPayment({ orderId: res.orderId, ...r }).catch(() => null);
+        if (done?.ok) return router.push(done.url);
+        setBusy(false);
+        setError(`We couldn't confirm your payment. If money was deducted, contact support with order ID ${res.orderId}.`);
+      },
+      modal: {
+        ondismiss: () => {
+          setBusy(false);
+          setError("Payment cancelled. You can try again.");
+        },
+      },
+    });
+    rzp.on("payment.failed", () => setError("Payment failed. Try another method."));
+    rzp.open();
   }
 
   if (!items.length)
@@ -71,7 +98,7 @@ export function CheckoutForm({ email }: { email: string }) {
 
   return (
     <div className="grid gap-10 py-10 lg:grid-cols-[1fr_420px]">
-      <Script src="https://sdk.cashfree.com/js/v3/cashfree.js" strategy="afterInteractive" />
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
       <form action={submit} className="flex flex-col gap-4">
         <h1 className="font-heading text-3xl font-bold">Checkout</h1>
         <h2 className="mt-2 font-heading text-lg font-bold">Contact</h2>
@@ -97,7 +124,7 @@ export function CheckoutForm({ email }: { email: string }) {
         <button type="submit" disabled={busy} className="mt-2 h-14 rounded-md bg-black font-heading text-lg font-bold text-brand-yellow disabled:opacity-60">
           {busy ? "Starting payment…" : `Pay ${rs(subtotal + shipping)}`}
         </button>
-        <p className="text-xs text-black/60">Payments are processed securely by Cashfree. UPI, cards, netbanking and wallets accepted.</p>
+        <p className="text-xs text-black/60">Payments are processed securely by Razorpay. UPI, cards, netbanking and wallets accepted.</p>
       </form>
 
       <aside className="h-fit rounded-lg bg-media p-6">

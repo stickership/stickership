@@ -40,7 +40,7 @@ export const pages: Record<string, { title: string; body: string[] }> = {
     title: "Privacy Policy",
     body: [
       "We collect only what we need to deliver your order: name, email, phone and address.",
-      "Payments are processed by Cashfree; we never see or store your card details. We do not sell your data.",
+      "Payments are processed by Razorpay; we never see or store your card details. We do not sell your data.",
     ],
   },
   "bulk-orders": {

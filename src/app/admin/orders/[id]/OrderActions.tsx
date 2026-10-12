@@ -42,7 +42,7 @@ export function OrderActions({ id, status, courier, trackingNo }: { id: string; 
             <button disabled={pending} onClick={() => go("shipped")} className={btn}>
               Mark shipped
             </button>
-            <button disabled={pending} onClick={() => go("cancelled", "Cancel this paid order? Refund the customer in Cashfree separately.")} className={`${btnGhost} text-red-600`}>
+            <button disabled={pending} onClick={() => go("cancelled", "Cancel this paid order? Refund the customer in the Razorpay dashboard separately.")} className={`${btnGhost} text-red-600`}>
               Cancel order
             </button>
           </div>

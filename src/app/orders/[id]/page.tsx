@@ -5,7 +5,7 @@ import { timingSafeEqual } from "node:crypto";
 import { Shell } from "@/components/Shell";
 import { admin } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
-import { markPaidIfCfPaid, orderToken } from "@/lib/orders";
+import { orderToken, reconcile } from "@/lib/orders";
 import { rs } from "@/lib/format";
 import { ClearCart } from "./ClearCart";
 
@@ -44,15 +44,14 @@ async function Content({ params, searchParams }: PageProps<"/orders/[id]">) {
   const db = admin();
   let { data: order } = await db
     .from("orders")
-    .select("id, email, name, address, subtotal, shipping, total, status, cf_order_id, courier, tracking_no, created_at, order_items(product_id, title, image, price, qty)")
+    .select("id, email, name, address, subtotal, shipping, total, status, rzp_order_id, courier, tracking_no, created_at, order_items(product_id, title, image, price, qty)")
     .eq("id", id)
     .maybeSingle();
   if (!order) notFound();
 
-  if (order.status === "pending" && order.cf_order_id) {
+  if (order.status === "pending" && order.rzp_order_id) {
     try {
-      const status = await markPaidIfCfPaid(order.id, order.cf_order_id);
-      if (status !== "ACTIVE") order = { ...order, status: status === "PAID" ? "paid" : "failed" };
+      if ((await reconcile(order.id, order.rzp_order_id)) === "paid") order = { ...order, status: "paid" };
     } catch (e) {
       console.error("order reconcile failed", id, e);
     }
