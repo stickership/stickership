@@ -11,11 +11,12 @@ export type Product = {
   price: number;
   compare_at: number | null;
   in_stock: boolean;
+  theme: string | null;
 };
 
 export type Filters = Partial<Record<"theme" | "style" | "type" | "availability" | "sort", string>>;
 
-const COLUMNS = "id, slug, title, image, price, compare_at, in_stock";
+const COLUMNS = "id, slug, title, image, price, compare_at, in_stock, theme";
 
 const SORTS: Record<string, [string, boolean]> = {
   featured: ["position", true],

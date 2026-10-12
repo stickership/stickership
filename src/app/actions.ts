@@ -12,6 +12,10 @@ export async function loadMore(filters: Filters, page: number) {
   return listProducts(filters, Math.max(0, Math.min(page, 500)));
 }
 
+export async function upsells() {
+  return (await listProducts({ type: "Mystery Box,Holographic stickers,Glitter Stickers" })).slice(0, 8);
+}
+
 export async function search(term: string) {
   return searchProducts(String(term).slice(0, 80));
 }
