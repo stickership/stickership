@@ -12,12 +12,12 @@ import { ClearCart } from "./ClearCart";
 export const metadata = { title: "Your order | stickership", robots: { index: false } };
 
 const LABEL: Record<string, [string, string]> = {
-  pending: ["Awaiting payment", "bg-amber-100 text-amber-800"],
-  paid: ["Paid · preparing to ship", "bg-green-100 text-green-800"],
-  shipped: ["Shipped · on the way", "bg-violet-100 text-violet-800"],
-  delivered: ["Delivered", "bg-green-100 text-green-800"],
-  failed: ["Payment failed", "bg-red-100 text-red-800"],
-  cancelled: ["Cancelled", "bg-black/10 text-black/70"],
+  pending: ["Awaiting payment", "bg-amber-200"],
+  paid: ["Paid · preparing to ship", "bg-slime"],
+  shipped: ["Shipped · on the way", "bg-sky"],
+  delivered: ["Delivered", "bg-slime"],
+  failed: ["Payment failed", "bg-pop"],
+  cancelled: ["Cancelled", "bg-white"],
 };
 
 const sameToken = (a: string, b: string) => a.length === b.length && timingSafeEqual(Buffer.from(a), Buffer.from(b));
@@ -64,9 +64,9 @@ async function Content({ params, searchParams }: PageProps<"/orders/[id]">) {
     <>
       {order.status !== "pending" && order.status !== "cancelled" && order.status !== "failed" && <ClearCart />}
       <div className="mx-auto max-w-[720px] py-12">
-        <p className="text-sm text-black/60">Order #{order.id.slice(0, 8).toUpperCase()}</p>
-        <h1 className="mt-1 font-heading text-3xl font-bold">{order.status === "paid" ? `Thanks, ${order.name.split(" ")[0]}!` : "Order status"}</h1>
-        <span className={`mt-3 inline-block rounded-full px-3 py-1 text-sm font-semibold ${tone}`}>{label}</span>
+        <p className="font-mono text-sm text-ink/60">Order #{order.id.slice(0, 8).toUpperCase()}</p>
+        <h1 className="mt-2 font-display text-5xl leading-none">{order.status === "paid" ? `Thanks, ${order.name.split(" ")[0]}!` : "Order status"}</h1>
+        <span className={`mt-4 inline-block -rotate-2 rounded-full border-2 border-ink px-3 py-1 text-sm font-bold text-ink ${tone}`}>{label}</span>
         {order.tracking_no && (
           <p className="mt-3 text-sm">
             Shipped via <b>{order.courier}</b> · tracking number <b className="font-mono">{order.tracking_no}</b>
@@ -81,20 +81,20 @@ async function Content({ params, searchParams }: PageProps<"/orders/[id]">) {
           </p>
         )}
 
-        <ul className="mt-8 divide-y divide-black/10 border-y border-black/10">
+        <ul className="card mt-8 divide-y-2 divide-ink/10 px-5">
           {order.order_items.map((i) => (
             <li key={i.product_id} className="flex items-center gap-4 py-4">
-              <span className="relative size-16 shrink-0 bg-media">
+              <span className="relative size-16 shrink-0 overflow-hidden rounded-xl border-2 border-ink bg-paper">
                 <Image src={i.image} alt="" fill sizes="64px" className="object-cover" />
               </span>
               <span className="flex-1 text-sm font-medium">
                 {i.title} × {i.qty}
               </span>
-              <span className="text-sm font-semibold">{rs(Number(i.price) * i.qty)}</span>
+              <span className="font-mono text-sm font-bold">{rs(Number(i.price) * i.qty)}</span>
             </li>
           ))}
         </ul>
-        <dl className="mt-4 flex flex-col gap-1 text-sm">
+        <dl className="mt-5 flex flex-col gap-1 px-1 font-mono text-sm">
           <div className="flex justify-between">
             <dt>Subtotal</dt>
             <dd>{rs(Number(order.subtotal))}</dd>
@@ -108,14 +108,14 @@ async function Content({ params, searchParams }: PageProps<"/orders/[id]">) {
             <dd>{rs(Number(order.total))}</dd>
           </div>
         </dl>
-        <div className="mt-8 rounded-lg bg-media p-5 text-sm">
+        <div className="mt-8 rounded-3xl border-2 border-ink bg-white p-5 text-sm">
           <p className="font-semibold">Shipping to</p>
-          <p className="mt-1 text-black/70">
+          <p className="mt-1 text-ink/70">
             {order.name}, {addr.line1}
             {addr.line2 ? `, ${addr.line2}` : ""}, {addr.city}, {addr.state} {addr.pincode}
           </p>
-          <p className="mt-3 text-black/60">Updates go to {order.email}. Keep your order ID to track it anytime.</p>
-          <p className="mt-1 font-mono text-xs text-black/50">{order.id}</p>
+          <p className="mt-3 text-ink/60">Updates go to {order.email}. Keep your order ID to track it anytime.</p>
+          <p className="mt-1 font-mono text-xs text-ink/50">{order.id}</p>
         </div>
       </div>
     </>

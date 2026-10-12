@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { EyeIcon } from "@/components/icons";
 import { AddToCart } from "@/components/AddToCart";
 import type { Product } from "@/lib/catalog";
 import { rs } from "@/lib/format";
@@ -13,43 +12,41 @@ export function ProductCard({ product }: { product: Product }) {
   const off = compareAt > price ? Math.round((1 - price / compareAt) * 100) : 0;
   return (
     <div className="group flex h-full flex-col">
-      <Link href={href} className="relative block aspect-square overflow-hidden rounded-2xl bg-media">
+      <Link
+        href={href}
+        className="die-cut relative block aspect-square overflow-hidden bg-white transition-transform duration-300 ease-out group-hover:-translate-y-1 group-hover:-rotate-2"
+      >
         <Image
           src={image}
           alt={title}
           fill
           sizes="(min-width:990px) 25vw, (min-width:750px) 33vw, 50vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          className="object-cover"
         />
         {off > 0 && (
-          <span className="absolute left-3 top-3 rounded-full bg-[rgb(220,38,38)] px-2.5 py-1 font-sans text-[11px] font-extrabold leading-none text-white md:text-xs">
-            {off}% OFF
+          <span className="absolute left-2.5 top-2.5 -rotate-6 rounded-full border-2 border-ink bg-slime px-2 py-0.5 font-mono text-[11px] font-bold leading-tight text-ink md:text-xs">
+            -{off}%
           </span>
         )}
         {!product.in_stock && (
-          <span className="absolute inset-x-0 bottom-0 bg-black/70 py-1.5 text-center font-heading text-xs font-bold uppercase text-white">Sold out</span>
+          <span className="absolute inset-x-0 top-1/2 -translate-y-1/2 -rotate-6 bg-ink py-1.5 text-center font-mono text-xs font-bold uppercase text-white">Sold out</span>
         )}
         <span
           aria-hidden
-          className="absolute bottom-3 right-3 hidden size-10 items-center justify-center rounded-xl bg-white/90 text-black opacity-0 shadow-sm transition-opacity duration-300 group-hover:opacity-100 lg:flex"
-        >
-          <EyeIcon width={18} height={18} />
-        </span>
+          className="absolute -bottom-px -right-px size-0 rounded-tl-xl bg-[linear-gradient(135deg,#ece8f6_45%,rgb(21_17_28/0.15)_50%,transparent_55%)] shadow-[-3px_-3px_6px_rgb(21_17_28/0.15)] transition-all duration-300 group-hover:size-10"
+        />
       </Link>
-      <h3 className="mt-3 line-clamp-2 font-heading text-sm font-bold leading-[18.2px] tracking-[-0.072px] text-black md:mt-4 md:text-lg md:leading-[23.4px]">
+      <h3 className="mt-3 line-clamp-2 text-sm font-bold leading-tight md:mt-4 md:text-base">
         <Link href={href} className="hover:underline">
           {title}
         </Link>
       </h3>
-      <div className="mt-1.5 flex flex-wrap items-baseline gap-x-2 font-sans">
-        <span className="text-base font-bold text-black md:text-lg">{rs(price)}</span>
-        {off > 0 && <s className="text-xs font-medium text-strike md:text-sm">{rs(compareAt)}</s>}
+      <div className="mt-1 flex flex-wrap items-baseline gap-x-2 font-mono">
+        <span className="text-base font-bold md:text-lg">{rs(price)}</span>
+        {off > 0 && <s className="text-xs text-strike md:text-sm">{rs(compareAt)}</s>}
       </div>
       <div className="mt-auto pt-3">
-        <AddToCart
-          product={product}
-          className="h-10 w-full rounded-lg border border-black bg-black font-heading text-sm font-bold text-brand-yellow transition-colors duration-200 hover:bg-brand-yellow hover:text-black"
-        />
+        <AddToCart product={product} className="btn h-10 w-full px-3 text-sm" />
       </div>
     </div>
   );

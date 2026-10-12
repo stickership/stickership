@@ -26,13 +26,16 @@ async function Collection({ searchParams }: PageProps<"/">) {
 
 export default function Home(props: PageProps<"/">) {
   return (
-    <div className="pb-[60px] md:pb-0">
+    <div className="pb-24 md:pb-0">
       <AnnouncementBar />
       <Header />
       <main>
         <HeroBanner />
         <Marquee />
-        <div id="shop" className="mx-auto max-w-[1600px] scroll-mt-4 px-[15px] pt-[3px] md:pt-[5px] md:px-[50px]">
+        <div id="shop" className="mx-auto max-w-[1600px] scroll-mt-20 px-[15px] pt-6 md:px-[50px] md:pt-10">
+          <h2 className="mb-6 font-display text-5xl leading-none md:text-7xl">
+            the whole <span className="text-pop">sheet</span>
+          </h2>
           <Suspense fallback={<div className="h-[600px]" />}>
             <Collection {...props} />
           </Suspense>

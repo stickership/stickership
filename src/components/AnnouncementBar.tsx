@@ -25,30 +25,19 @@ export function AnnouncementBar() {
   }, []);
 
   return (
-    <div className="relative z-[90] h-[43px] bg-brand-red lg:h-16">
-      <div className="flex h-full items-center justify-center gap-1.5 px-0 py-1 lg:gap-6 lg:px-7 lg:py-2">
-        <p className="font-sans text-[15px] font-bold leading-[19.5px] text-white lg:text-2xl lg:leading-[28.8px]">
-          STICKERS @ ₹10 · ENDS IN:
-        </p>
-        <div className="flex h-[35px] w-40 items-center justify-center gap-[1px] lg:h-12 lg:w-56 lg:gap-[2.7px]">
-          {t.map((v, i) => (
-            <div key={labels[i]} className="flex items-center">
-              {i > 0 && (
-                <span className="w-[4px] pb-[1px] text-center font-serif text-sm font-medium text-timer-pink lg:w-1.5 lg:pb-0.5 lg:text-xl">
-                  :
-                </span>
-              )}
-              <div className="flex h-[35px] w-[35px] flex-col items-center justify-center lg:h-12 lg:w-12">
-                <span className="font-sans text-[19px] font-semibold leading-[19px] text-timer-gold lg:text-[27px] lg:leading-[27px]">
-                  {pad(v)}
-                </span>
-                <span className="font-sans text-[7.5px] font-medium leading-[7.5px] text-timer-pink lg:text-[10.75px] lg:leading-[10.75px]">
-                  {labels[i]}
-                </span>
-              </div>
-            </div>
+    <div className="relative z-[90] bg-pop text-ink">
+      <div className="mx-auto flex h-10 max-w-[1600px] items-center justify-center gap-3 px-4 font-mono text-[12px] font-bold uppercase tracking-wide md:h-11 md:text-sm">
+        <span>
+          Every sticker ₹10 <span className="hidden sm:inline">· drop ends in</span>
+        </span>
+        <span className="flex items-center gap-1" aria-label={`${t[1]} hours ${t[2]} minutes ${t[3]} seconds left`}>
+          {t.slice(1).map((v, i) => (
+            <span key={labels[i + 1]} className="rounded-md bg-ink px-1.5 py-0.5 tabular-nums text-slime">
+              {pad(v)}
+              <span className="text-[9px] text-white/60">{labels[i + 1][0].toLowerCase()}</span>
+            </span>
           ))}
-        </div>
+        </span>
       </div>
     </div>
   );

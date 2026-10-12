@@ -17,7 +17,7 @@ declare global {
   }
 }
 
-const field = "h-12 w-full rounded-md border border-black/15 px-4 text-[15px] outline-none focus:border-black";
+const field = "field text-[15px]";
 const STATES = [
   "Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh",
   "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir",
@@ -89,8 +89,8 @@ export function CheckoutForm({ email }: { email: string }) {
   if (!items.length)
     return (
       <div className="flex flex-col items-center gap-4 py-24 text-center">
-        <h1 className="font-heading text-2xl font-bold">Your cart is empty</h1>
-        <Link href="/" className="rounded-md bg-black px-6 py-3 font-heading font-bold text-brand-yellow">
+        <h1 className="font-display text-4xl">cart&apos;s empty</h1>
+        <Link href="/" className="btn">
           Shop stickers
         </Link>
       </div>
@@ -100,11 +100,11 @@ export function CheckoutForm({ email }: { email: string }) {
     <div className="grid gap-10 py-10 lg:grid-cols-[1fr_420px]">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
       <form action={submit} className="flex flex-col gap-4">
-        <h1 className="font-heading text-3xl font-bold">Checkout</h1>
-        <h2 className="mt-2 font-heading text-lg font-bold">Contact</h2>
+        <h1 className="font-display text-5xl leading-none">checkout</h1>
+        <h2 className="mt-4 font-mono text-xs font-bold uppercase tracking-wider">Contact</h2>
         <input name="email" type="email" required defaultValue={email} placeholder="Email" autoComplete="email" className={field} />
         <input name="phone" type="tel" required pattern="[6-9][0-9]{9}" maxLength={10} placeholder="Mobile number (10 digits)" autoComplete="tel-national" className={field} />
-        <h2 className="mt-2 font-heading text-lg font-bold">Delivery</h2>
+        <h2 className="mt-4 font-mono text-xs font-bold uppercase tracking-wider">Delivery</h2>
         <input name="name" required minLength={2} placeholder="Full name" autoComplete="name" className={field} />
         <input name="line1" required minLength={3} placeholder="House no., building, street" autoComplete="address-line1" className={field} />
         <input name="line2" placeholder="Area, landmark (optional)" autoComplete="address-line2" className={field} />
@@ -120,28 +120,28 @@ export function CheckoutForm({ email }: { email: string }) {
           </select>
           <input name="pincode" required pattern="[0-9]{6}" maxLength={6} inputMode="numeric" placeholder="Pincode" autoComplete="postal-code" className={field} />
         </div>
-        {error && <p className="rounded-md bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
-        <button type="submit" disabled={busy} className="mt-2 h-14 rounded-md bg-black font-heading text-lg font-bold text-brand-yellow disabled:opacity-60">
+        {error && <p className="rounded-2xl border-2 border-ink bg-pop/20 px-4 py-3 text-sm font-semibold">{error}</p>}
+        <button type="submit" disabled={busy} className="btn mt-2 h-14 text-lg">
           {busy ? "Starting payment…" : `Pay ${rs(subtotal + shipping)}`}
         </button>
-        <p className="text-xs text-black/60">Payments are processed securely by Razorpay. UPI, cards, netbanking and wallets accepted.</p>
+        <p className="text-xs text-ink/60">Payments are processed securely by Razorpay. UPI, cards, netbanking and wallets accepted.</p>
       </form>
 
-      <aside className="h-fit rounded-lg bg-media p-6">
-        <h2 className="font-heading text-lg font-bold">Order summary</h2>
+      <aside className="card h-fit p-6 lg:sticky lg:top-24">
+        <h2 className="font-display text-3xl leading-none">your stash</h2>
         <ul className="mt-4 flex flex-col gap-4">
           {items.map((i) => (
             <li key={i.id} className="flex items-center gap-3">
-              <span className="relative size-14 shrink-0 bg-white">
-                <Image src={i.image} alt="" fill sizes="56px" className="object-cover" />
-                <span className="absolute -right-2 -top-2 flex size-5 items-center justify-center rounded-full bg-black text-[11px] text-white">{i.qty}</span>
+              <span className="relative size-14 shrink-0 rounded-xl border-2 border-ink bg-paper">
+                <Image src={i.image} alt="" fill sizes="56px" className="rounded-[10px] object-cover" />
+                <span className="absolute -right-2 -top-2 flex size-5 items-center justify-center rounded-full bg-pop font-mono text-[11px] font-bold text-ink">{i.qty}</span>
               </span>
               <span className="flex-1 text-sm font-medium">{i.title}</span>
-              <span className="text-sm font-semibold">{rs(i.price * i.qty)}</span>
+              <span className="font-mono text-sm font-bold">{rs(i.price * i.qty)}</span>
             </li>
           ))}
         </ul>
-        <dl className="mt-6 flex flex-col gap-2 border-t border-black/10 pt-4 text-sm">
+        <dl className="mt-6 flex flex-col gap-2 border-t-2 border-ink/10 pt-4 font-mono text-sm">
           <div className="flex justify-between">
             <dt>Subtotal</dt>
             <dd>{rs(subtotal)}</dd>
@@ -155,7 +155,7 @@ export function CheckoutForm({ email }: { email: string }) {
             <dd>{rs(subtotal + shipping)}</dd>
           </div>
         </dl>
-        <p className="mt-3 text-xs text-black/50">Final prices are confirmed on the server before payment.</p>
+        <p className="mt-3 text-xs text-ink/50">Final prices are confirmed on the server before payment.</p>
       </aside>
     </div>
   );

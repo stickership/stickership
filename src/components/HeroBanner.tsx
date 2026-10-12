@@ -1,28 +1,35 @@
 import { heroProducts } from "@/lib/catalog";
 import { StickerLaptop } from "@/components/StickerLaptop";
 
+const dieCut = "[paint-order:stroke_fill] [-webkit-text-stroke:12px_white] md:[-webkit-text-stroke:16px_white]";
+
 export async function HeroBanner() {
   const products = await heroProducts();
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_75%_40%,#fff7d6_0%,#fafafa_55%)]">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-[minmax(0,1fr)] items-center gap-8 px-[15px] py-8 md:px-[50px] lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-12 lg:py-14">
+    <section className="mat relative overflow-hidden border-b-2 border-ink text-white">
+      <div aria-hidden className="flex h-6 justify-between overflow-hidden border-b border-white/30 px-2 font-mono text-[10px] leading-6 text-white/60">
+        {Array.from({ length: 24 }, (_, i) => (
+          <span key={i} className={i > 11 ? "hidden md:inline" : ""}>
+            {i * 5}
+          </span>
+        ))}
+      </div>
+      <div className="mx-auto grid max-w-[1600px] grid-cols-[minmax(0,1fr)] items-center gap-10 px-[15px] py-10 md:px-[50px] lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14 lg:py-16">
         <div>
-          <p className="inline-block rounded-full bg-brand-red px-3 py-1 font-heading text-xs font-bold uppercase tracking-wide text-white md:text-sm">
-            Flat 87% off · today only
+          <p className="inline-block -rotate-2 rounded-full border-2 border-ink bg-slime px-3 py-1 font-mono text-xs font-bold uppercase text-ink md:text-sm">
+            Waterproof vinyl · ships in 24h
           </p>
-          <h1 className="mt-4 font-heading text-[44px] font-extrabold leading-[0.95] tracking-[-2px] text-black md:text-[72px] lg:text-[84px]">
-            Stickers at
-            <br />
-            just <span className="text-brand-red">₹10</span>
+          <h1 className="mt-6 font-display text-[64px] leading-[0.92] text-ink md:text-[104px] lg:text-[120px]">
+            <span className={`block -rotate-2 ${dieCut}`}>slap it</span>
+            <span className={`block rotate-1 ${dieCut}`}>
+              for <span className="text-pop">₹10</span>
+            </span>
           </h1>
-          <p className="mt-4 max-w-[420px] text-base text-black/70 md:text-lg">
-            Drag stickers onto the laptop, build your vibe, then add the whole setup to your cart in one tap.
+          <p className="mt-6 max-w-[440px] text-base text-white/85 md:text-lg">
+            Anime, memes, cats, chaos. Drag a few onto the laptop to test your vibe, then grab the whole setup in one tap.
           </p>
-          <a
-            href="#shop"
-            className="mt-6 inline-flex h-12 items-center rounded-lg bg-black px-6 font-heading text-base font-bold text-brand-yellow transition-colors hover:bg-brand-yellow hover:text-black"
-          >
-            Shop all stickers ↓
+          <a href="#shop" className="btn mt-7 h-14 border-ink px-8 text-lg">
+            Shop all stickers
           </a>
         </div>
         <StickerLaptop products={products} />

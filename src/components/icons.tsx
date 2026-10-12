@@ -2,15 +2,6 @@ import type { SVGProps } from "react";
 
 type P = SVGProps<SVGSVGElement>;
 
-export const SupportIcon = (p: P) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
-    <path d="M2 10L5 10C5.55228 10 6 10.4477 6 11V16C6 16.5523 5.55228 17 5 17H3C2.44772 17 2 16.5523 2 16V10Z" />
-    <path d="M22 10L19 10C18.4477 10 18 10.4477 18 11V16C18 16.5523 18.4477 17 19 17H21C21.5523 17 22 16.5523 22 16V10Z" />
-    <path d="M21 8C21 4.5 17.5228 1 12 1C6.47715 1 3 4.5 3 8" />
-    <path d="M21 20V21V21C21 22.1046 20.1046 23 19 23H11.5" />
-  </svg>
-);
-
 export const SearchIcon = (p: P) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
     <path d="M22 22L15.656 15.656" />
@@ -42,13 +33,6 @@ export const MenuIcon = (p: P) => (
 export const CaretIcon = (p: P) => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" {...p}>
     <path d="M12.6667 6L8 10.6667L3.33333 6" />
-  </svg>
-);
-
-export const EyeIcon = (p: P) => (
-  <svg width="18" height="18" viewBox="0 0 19 18" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" {...p}>
-    <path d="M2 9C2 9 5 4.5 9.5 4.5C14 4.5 17 9 17 9C17 9 14 13.5 9.5 13.5C5 13.5 2 9 2 9Z" />
-    <path d="M9.5 10.5C11.1569 10.5 12.5 9.15685 12.5 7.5C12.5 5.84315 11.1569 4.5 9.5 4.5C7.84315 4.5 6.5 5.84315 6.5 7.5C6.5 9.15685 7.84315 10.5 9.5 10.5Z" />
   </svg>
 );
 

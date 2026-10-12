@@ -4,9 +4,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
-const field = "h-12 w-full rounded-md border border-black/15 px-4 outline-none focus:border-black";
-const btn = "h-12 rounded-md bg-black font-heading font-bold text-brand-yellow disabled:opacity-60";
-
 export function LoginForm() {
   const router = useRouter();
   const next = useSearchParams().get("next");
@@ -34,9 +31,9 @@ export function LoginForm() {
           run(() => createClient().auth.signInWithOtp({ email, options: { shouldCreateUser: true } }), () => setSent(true));
         }}
       >
-        <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className={field} />
-        {error && <p className="text-sm text-red-700">{error}</p>}
-        <button disabled={busy} className={btn}>
+        <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="field" />
+        {error && <p className="text-sm font-semibold text-pop">{error}</p>}
+        <button disabled={busy} className="btn mt-2">
           {busy ? "Sending…" : "Send code"}
         </button>
       </form>
@@ -63,9 +60,9 @@ export function LoginForm() {
           Change
         </button>
       </p>
-      <input name="code" required inputMode="numeric" pattern="[0-9]{6,10}" autoComplete="one-time-code" placeholder="Enter code" className={field} />
-      {error && <p className="text-sm text-red-700">{error}</p>}
-      <button disabled={busy} className={btn}>
+      <input name="code" required inputMode="numeric" pattern="[0-9]{6,10}" autoComplete="one-time-code" placeholder="Enter code" className="field" />
+      {error && <p className="text-sm font-semibold text-pop">{error}</p>}
+      <button disabled={busy} className="btn mt-2">
         {busy ? "Verifying…" : "Verify & log in"}
       </button>
     </form>

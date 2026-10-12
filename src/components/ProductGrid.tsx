@@ -37,7 +37,7 @@ export function ProductGrid({ initial, filters }: { initial: Product[]; filters:
     return () => io.disconnect();
   }, [done, filters, items.length]);
 
-  if (!items.length) return <p className="py-24 text-center font-heading text-lg font-bold">No stickers match these filters.</p>;
+  if (!items.length) return <p className="py-24 text-center text-lg font-bold">No stickers match these filters. Try removing one.</p>;
 
   return (
     <>

@@ -77,11 +77,12 @@ export function StickerLaptop({ products }: { products: Product[] }) {
       <div className="mx-auto w-full max-w-[720px]">
         <div
           ref={lid}
-          className="relative aspect-[16/10] rounded-[22px] border-[6px] border-[#2b2d31] bg-[linear-gradient(145deg,#9a9da3_0%,#7d8086_55%,#6c6f75_100%)] shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)]"
+          className="relative aspect-[16/10] overflow-hidden rounded-[18px] bg-[linear-gradient(160deg,#eeedf3_0%,#d9d8e1_45%,#c4c3ce_100%)] shadow-[inset_0_0_0_1.5px_rgb(255_255_255/0.7),inset_0_-8px_16px_rgb(21_17_28/0.08),0_0_0_3px_var(--color-ink)]"
         >
-          <span aria-hidden className="absolute left-1/2 top-1/2 size-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10" />
+          <span aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_35%,rgb(255_255_255/0.45)_48%,transparent_60%)]" />
+          <span aria-hidden className="absolute left-1/2 top-1/2 size-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_35%_30%,#fff,#cfcdd8)] shadow-[inset_0_1px_2px_rgb(21_17_28/0.2)]" />
           {placed.length === 0 && (
-            <p className="absolute inset-0 flex items-center justify-center font-heading text-lg font-bold text-white/70">Drop stickers here</p>
+            <p className="absolute inset-0 flex items-center justify-center font-display text-2xl text-ink/30">drop stickers here</p>
           )}
           {placed.map((p) => {
             const s = spots[p.id];
@@ -92,7 +93,7 @@ export function StickerLaptop({ products }: { products: Product[] }) {
                 type="button"
                 aria-label={`Move ${p.title}`}
                 onPointerDown={(e) => start(e, p.id)}
-                className={`absolute w-[17%] cursor-grab touch-none active:cursor-grabbing ${hidden ? "opacity-0" : ""}`}
+                className={`absolute w-[21%] cursor-grab touch-none mix-blend-multiply active:cursor-grabbing ${hidden ? "opacity-0" : ""}`}
                 style={{ left: `${s.x}%`, top: `${s.y}%`, zIndex: s.z, transform: `translate(-50%,-50%) rotate(${s.rot}deg)` }}
               >
                 <Sticker product={p} />
@@ -100,18 +101,24 @@ export function StickerLaptop({ products }: { products: Product[] }) {
             );
           })}
         </div>
-        <div aria-hidden className="mx-auto h-3 w-[112%] -translate-x-[5.4%] rounded-b-[18px] bg-gradient-to-b from-[#c9ccd1] to-[#9a9da3] shadow-[0_10px_20px_-8px_rgba(0,0,0,0.4)]" />
+        <div aria-hidden className="relative -mx-[6%]">
+          <div className="mx-auto h-1.5 w-[86%] rounded-b-sm bg-[#3a3542]" />
+          <div className="relative h-4 rounded-b-[40px] rounded-t-sm border-[3px] border-t-0 border-ink bg-[linear-gradient(#f2f1f6,#bdbcc8)] md:h-5">
+            <span className="absolute left-1/2 top-0 h-1.5 w-[14%] -translate-x-1/2 rounded-b-lg bg-[#a6a4b2]" />
+          </div>
+          <div className="mx-auto mt-2 h-3 w-[90%] rounded-[50%] bg-ink/35 blur-md" />
+        </div>
       </div>
 
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-        <p className="font-sans text-sm text-black/60">
+        <p className="font-mono text-xs text-white/80 md:text-sm">
           {placed.length} on laptop · {rs(total)} · drag off to remove
         </p>
         <div className="flex gap-2">
           <button
             type="button"
             onClick={() => setSpots({})}
-            className="h-10 rounded-lg border border-black/15 bg-white px-4 font-heading text-sm font-bold"
+            className="h-11 rounded-full border-2 border-ink bg-white px-5 text-sm font-bold text-ink"
           >
             Clear
           </button>
@@ -119,9 +126,9 @@ export function StickerLaptop({ products }: { products: Product[] }) {
             type="button"
             disabled={!placed.length}
             onClick={addAll}
-            className="h-10 rounded-lg bg-black px-4 font-heading text-sm font-bold text-brand-yellow transition-colors hover:bg-brand-yellow hover:text-black disabled:opacity-40"
+            className="btn h-11 text-sm"
           >
-            {added ? "Added ✓" : `Add ${placed.length} to cart`}
+            {added ? "Added ✓" : `Add all ${placed.length} to cart`}
           </button>
         </div>
       </div>
@@ -134,7 +141,7 @@ export function StickerLaptop({ products }: { products: Product[] }) {
                 type="button"
                 aria-label={`Drag ${p.title} onto the laptop`}
                 onPointerDown={(e) => start(e, p.id)}
-                className={`block w-[72px] cursor-grab touch-none rounded-xl bg-white p-1.5 shadow-sm active:cursor-grabbing md:w-[84px] ${drag?.id === p.id && drag.moved ? "opacity-30" : ""}`}
+                className={`block w-[72px] cursor-grab touch-none rounded-2xl border-2 border-ink bg-white p-1.5 transition-transform hover:-rotate-6 active:cursor-grabbing md:w-[84px] ${drag?.id === p.id && drag.moved ? "opacity-30" : ""}`}
               >
                 <Sticker product={p} />
               </button>
@@ -154,8 +161,8 @@ export function StickerLaptop({ products }: { products: Product[] }) {
 
 function Sticker({ product }: { product: Product }) {
   return (
-    <span className="relative block aspect-square overflow-hidden rounded-[16%] bg-white shadow-[0_3px_8px_rgba(0,0,0,0.3)]">
-      <Image src={product.image} alt="" fill sizes="160px" draggable={false} className="object-contain p-[4%]" />
+    <span className="relative block aspect-square">
+      <Image src={product.image} alt="" fill sizes="160px" draggable={false} className="object-contain" />
     </span>
   );
 }

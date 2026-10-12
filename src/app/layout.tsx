@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
-import { Outfit, Bricolage_Grotesque } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Bagel_Fat_One, Instrument_Sans, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"] });
-const bricolage = Bricolage_Grotesque({ variable: "--font-bricolage", subsets: ["latin"] });
+const instrument = Instrument_Sans({ variable: "--font-instrument", subsets: ["latin"] });
+const bagel = Bagel_Fat_One({ variable: "--font-bagel", subsets: ["latin"], weight: "400" });
+const spaceMono = Space_Mono({ variable: "--font-spacemono", subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://stickership.shop"),
@@ -11,9 +12,11 @@ export const metadata: Metadata = {
   description: "Premium vinyl stickers starting at ₹10. Waterproof, fade-proof, shipped in 24 hrs.",
 };
 
+export const viewport: Viewport = { themeColor: "#15111c" };
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${outfit.variable} ${bricolage.variable} antialiased`}>
+    <html lang="en" className={`${instrument.variable} ${bagel.variable} ${spaceMono.variable} antialiased`}>
       <body>{children}</body>
     </html>
   );

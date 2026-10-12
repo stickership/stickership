@@ -1,31 +1,125 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-outfit), sans-serif;
-  --font-heading: var(--font-bricolage), sans-serif;
-  --color-brand-red: #c1121f;
-  --color-brand-yellow: #fbfe21;
-  --color-timer-gold: #ffd966;
-  --color-timer-pink: #f6d0d2;
-  --color-panel: #1f1e1e;
-  --color-media: #fafafa;
-  --color-sale: rgba(239, 68, 68, 0.8);
-  --color-strike: #94a3b8;
+  --font-sans: var(--font-instrument), sans-serif;
+  --font-heading: var(--font-instrument), sans-serif;
+  --font-display: var(--font-bagel), sans-serif;
+  --font-mono: var(--font-spacemono), monospace;
+  --color-ink: #15111c;
+  --color-paper: #f2eeff;
+  --color-pop: #ff3d8b;
+  --color-slime: #c8f31d;
+  --color-mat: #127a55;
+  --color-sky: #7cc4ff;
+  --color-brand-red: #ff3d8b;
+  --color-brand-yellow: #c8f31d;
+  --color-timer-gold: #c8f31d;
+  --color-timer-pink: #ffd1e4;
+  --color-panel: #241d2e;
+  --color-media: #f2eeff;
+  --color-sale: #ff3d8b;
+  --color-strike: #8a8296;
   --breakpoint-md: 750px;
   --breakpoint-lg: 990px;
 }
 
 body {
-  background: #fff;
-  color: #000;
-  font-family: var(--font-outfit), sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-instrument), sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.6;
 }
 
+:focus-visible {
+  outline: 3px solid var(--color-pop);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-slime);
+  color: var(--color-ink);
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  padding-inline: 1.5rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: var(--color-slime);
+  font-weight: 700;
+  box-shadow: 4px 4px 0 var(--color-pop);
+  transition: transform 0.15s, box-shadow 0.15s;
+  &:hover:not(:disabled) {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-pop);
+  }
+  &:active:not(:disabled) {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--color-pop);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@utility field {
+  height: 3rem;
+  width: 100%;
+  padding-inline: 1rem;
+  border: 2px solid var(--color-ink);
+  border-radius: 14px;
+  background: #fff;
+  outline: none;
+  &:focus {
+    box-shadow: 4px 4px 0 var(--color-slime);
+  }
+}
+
+@utility card {
+  border: 2px solid var(--color-ink);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 5px 5px 0 var(--color-ink);
+}
+
+@utility die-cut {
+  border: 6px solid #fff;
+  border-radius: 26px;
+  box-shadow: 0 0 0 1.5px rgb(21 17 28 / 0.12), 0 10px 24px -10px rgb(21 17 28 / 0.45);
+}
+
+@utility mat {
+  background-color: var(--color-mat);
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.22) 1px, transparent 1px),
+    linear-gradient(rgb(255 255 255 / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+}
+
 @keyframes marquee {
   to {
     transform: translateX(-100%);
+  }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
   }
 }

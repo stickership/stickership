@@ -8,7 +8,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
     <>
       <AnnouncementBar />
       <Header />
-      <main className="mx-auto min-h-[60vh] max-w-[1600px] px-[15px] md:px-[50px]"><Suspense fallback={<div className="py-24 text-center text-black/40">Loading…</div>}>{children}</Suspense>
+      <main className="mx-auto min-h-[60vh] max-w-[1600px] px-[15px] md:px-[50px]"><Suspense fallback={<div className="py-24 text-center text-ink/40">Loading…</div>}>{children}</Suspense>
       </main>
       <Footer />
     </>

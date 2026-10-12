@@ -42,12 +42,12 @@ function FacetList({ facet, counts, q }: { facet: string; counts: FacetCount[]; 
   const sel = q.get(facet);
   return (
     <>
-      <div className="flex items-center justify-between border-b border-black/10 px-6 py-4">
+      <div className="flex items-center justify-between border-b-2 border-ink px-6 py-4">
         <span className="text-[16px] font-semibold">{sel.length} selected</span>
         <button
           type="button"
           onClick={() => q.set(facet, [])}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-[4px] border border-black/[0.08] py-[7px] pl-[11px] pr-[9px] text-[12px] font-bold shadow-[rgba(0,0,0,0.05)_0_1px_2px]"
+          className="inline-flex cursor-pointer items-center gap-2 rounded-full border-2 border-ink py-1 pl-3 pr-2.5 text-xs font-bold"
         >
           Reset
           <CloseIcon />
@@ -66,11 +66,11 @@ function FacetList({ facet, counts, q }: { facet: string; counts: FacetCount[]; 
                   onChange={() => q.set(facet, on ? sel.filter((v) => v !== value) : [...sel, value])}
                   className="sr-only"
                 />
-                <span className={`flex size-4 shrink-0 items-center justify-center rounded-[3px] border-[1.5px] border-black/60 text-white ${on ? "bg-black" : ""}`}>
+                <span className={`flex size-4 shrink-0 items-center justify-center rounded-md border-2 border-ink text-slime ${on ? "bg-ink" : "bg-white"}`}>
                   {on && <CheckIcon />}
                 </span>
                 <span className="flex-1 text-[14px] font-medium leading-[22.4px]">{value}</span>
-                <span className="rounded-[4px] border border-black/10 bg-[#fafafa]/30 px-2 py-[6px] text-[10px] font-medium leading-[10px]">{count}</span>
+                <span className="font-mono text-xs text-ink/50">{count}</span>
               </label>
             );
           })}
@@ -81,12 +81,12 @@ function FacetList({ facet, counts, q }: { facet: string; counts: FacetCount[]; 
 
 function SortSelect({ q, className }: { q: ReturnType<typeof useQuery>; className: string }) {
   return (
-    <div className={`relative rounded-[6px] bg-[#fafafa] ${className}`}>
+    <div className={`relative rounded-full border-2 border-ink bg-white ${className}`}>
       <select
         aria-label="Sort by"
         value={q.get("sort")[0] ?? "featured"}
         onChange={(e) => q.set("sort", e.target.value === "featured" ? [] : [e.target.value])}
-        className="w-full cursor-pointer appearance-none rounded-[6px] bg-transparent py-4 pl-5 pr-[43px] text-[14px] leading-[14px] font-medium text-black/[0.78] shadow-[inset_rgba(0,0,0,0.1)_0_1px_2px]"
+        className="h-11 w-full cursor-pointer appearance-none rounded-full bg-transparent pl-5 pr-[43px] text-sm font-semibold text-ink"
       >
         {SORTS.map(([key, label]) => (
           <option key={key} value={key}>
@@ -124,9 +124,9 @@ export function CollectionToolbar({ counts }: { counts: FacetCount[] }) {
 
   return (
     <>
-      <div className={`hidden items-start justify-between font-sans transition-opacity md:flex ${q.pending ? "opacity-60" : ""}`}>
+      <div className={`hidden items-center justify-between font-sans transition-opacity md:flex ${q.pending ? "opacity-60" : ""}`}>
         <div ref={ref} className="flex items-center gap-3">
-          <span className="my-[11.6px] text-[14px] font-medium leading-[21px] tracking-[0.6px]">Filter:</span>
+          <span className="font-display text-2xl">filter</span>
           {FACETS.map(([facet, label]) => {
             const isOpen = open === facet;
             const n = q.get(facet).length;
@@ -136,14 +136,14 @@ export function CollectionToolbar({ counts }: { counts: FacetCount[] }) {
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => setOpen(isOpen ? null : facet)}
-                  className="flex h-[54px] cursor-pointer items-center gap-[10px] rounded-[6px] bg-[#fafafa] px-5 py-4 text-[14px] font-semibold leading-[22.4px] text-black transition-colors duration-300 hover:bg-[#f0f0f0]"
+                  className={`flex h-11 cursor-pointer items-center gap-2 rounded-full border-2 border-ink px-5 text-sm font-semibold transition-colors ${isOpen || n ? "bg-ink text-slime" : "bg-white text-ink hover:bg-slime"}`}
                 >
                   {label}
-                  {n > 0 && <span className="rounded-full bg-black px-1.5 text-[11px] leading-[18px] text-white">{n}</span>}
+                  {n > 0 && <span className="rounded-full bg-pop px-1.5 font-mono text-[11px] leading-[18px] text-ink">{n}</span>}
                   <CaretIcon className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
                 </button>
                 {isOpen && (
-                  <div className="absolute left-[-12px] top-[59.4px] z-30 flex max-h-[450px] w-[350px] flex-col rounded-[6px] bg-white shadow-[rgba(0,0,0,0.1)_0_0_24px_-3px]">
+                  <div className="card absolute left-0 top-[52px] z-30 flex max-h-[450px] w-[320px] flex-col overflow-hidden">
                     <FacetList facet={facet} counts={counts} q={q} />
                   </div>
                 )}
@@ -157,7 +157,7 @@ export function CollectionToolbar({ counts }: { counts: FacetCount[] }) {
       <button
         type="button"
         onClick={() => setSheet(true)}
-        className="fixed inset-x-0 bottom-0 z-40 flex h-[63px] items-center justify-center gap-[10px] bg-black py-[15px] font-heading text-[18px] font-bold uppercase text-white md:hidden"
+        className="btn fixed inset-x-4 bottom-4 z-40 h-14 text-base md:hidden"
       >
         <FilterIcon />
         Filter and sort
@@ -165,10 +165,10 @@ export function CollectionToolbar({ counts }: { counts: FacetCount[] }) {
       </button>
 
       {sheet && (
-        <div className="fixed inset-0 z-50 flex flex-col justify-end bg-black/40 md:hidden" onClick={() => setSheet(false)}>
-          <div className="flex max-h-[85vh] flex-col overflow-y-auto rounded-t-2xl bg-white pb-6 font-sans" onClick={(e) => e.stopPropagation()}>
-            <div className="sticky top-0 z-10 flex items-center justify-between bg-white px-6 py-4">
-              <span className="font-heading text-lg font-bold">Filter and sort</span>
+        <div className="fixed inset-0 z-50 flex flex-col justify-end bg-ink/50 md:hidden" onClick={() => setSheet(false)}>
+          <div className="flex max-h-[85vh] flex-col overflow-y-auto rounded-t-3xl border-t-2 border-ink bg-paper pb-6 font-sans" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 z-10 flex items-center justify-between bg-paper px-6 py-4">
+              <span className="font-display text-2xl">filter & sort</span>
               <button type="button" aria-label="Close" onClick={() => setSheet(false)} className="p-2">
                 <CloseIcon width={16} height={16} />
               </button>
@@ -177,7 +177,7 @@ export function CollectionToolbar({ counts }: { counts: FacetCount[] }) {
               <SortSelect q={q} className="w-full" />
             </div>
             {FACETS.map(([facet, label]) => (
-              <details key={facet} className="border-t border-black/10">
+              <details key={facet} className="border-t-2 border-ink/10">
                 <summary className="flex cursor-pointer list-none items-center justify-between px-6 py-4 text-[15px] font-semibold">
                   {label}
                   <CaretIcon />

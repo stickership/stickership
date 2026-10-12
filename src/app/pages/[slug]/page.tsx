@@ -15,8 +15,8 @@ async function Content({ params }: PageProps<"/pages/[slug]">) {
   return (
     <>
       <article className="mx-auto max-w-[720px] py-16">
-        <h1 className="font-heading text-4xl font-bold tracking-[-1px]">{page.title}</h1>
-        <div className="mt-6 flex flex-col gap-4 text-[16px] leading-[1.7] text-black/80">
+        <h1 className="font-display text-5xl leading-none">{page.title}</h1>
+        <div className="mt-6 flex flex-col gap-4 text-[17px] leading-[1.7] text-ink/80">
           {page.body.map((p) => (
             <p key={p}>{p}</p>
           ))}

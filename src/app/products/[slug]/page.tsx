@@ -43,48 +43,48 @@ async function Content({ params }: PageProps<"/products/[slug]">) {
   const related = (await listProducts(product.theme ? { theme: product.theme } : {})).filter((p) => p.id !== product.id).slice(0, 4);
 
   return (
-    <div className="-mx-[15px] bg-[#f7f7f7] px-[15px] pb-16 md:-mx-[50px] md:px-[50px]">
-      <nav aria-label="Breadcrumb" className="flex items-center gap-3 pb-8 pt-8 font-sans text-sm text-black/70">
+    <div className="pb-16">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-3 pb-8 pt-8 font-mono text-xs text-ink/60">
         <Link href="/" className="hover:underline">Home</Link>
         <span aria-hidden>›</span>
         <Link href="/" className="hover:underline">All Stickers</Link>
         <span aria-hidden>›</span>
-        <span className="truncate font-semibold text-black">{product.title}</span>
+        <span className="truncate font-bold text-ink">{product.title}</span>
       </nav>
 
       <div className="grid gap-8 lg:grid-cols-[45%_1fr]">
-        <div className="relative aspect-square overflow-hidden rounded-2xl bg-white">
+        <div className="die-cut relative aspect-square -rotate-1 overflow-hidden bg-white">
           <Image src={product.image} alt={product.title} fill priority sizes="(min-width:990px) 45vw, 100vw" className="object-contain" />
         </div>
 
-        <div className="lg:sticky lg:top-6 lg:self-start lg:pl-20">
+        <div className="lg:sticky lg:top-24 lg:self-start lg:pl-20">
           <div className="flex items-start justify-between gap-4">
-            <h1 className="font-heading text-2xl font-bold tracking-[-0.6px] md:text-[30px] md:leading-[39px]">{product.title}</h1>
+            <h1 className="text-3xl font-bold leading-tight tracking-tight md:text-[40px]">{product.title}</h1>
             <ShareButton title={product.title} />
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2.5 font-sans">
-            {compareAt > price && <s className="text-lg font-medium text-strike">{rs(compareAt)}</s>}
-            <span className="text-xl font-semibold text-[rgb(239,68,68)]">{rs(price)}</span>
+          <div className="mt-5 flex flex-wrap items-center gap-3 font-mono">
+            {compareAt > price && <s className="text-lg text-strike">{rs(compareAt)}</s>}
+            <span className="text-3xl font-bold">{rs(price)}</span>
             {compareAt > price && (
-              <span className="rounded-[3px] bg-black/5 px-2 py-1 text-[10px] font-medium leading-[10px]">Save {rs(compareAt - price)}</span>
+              <span className="-rotate-3 rounded-full border-2 border-ink bg-slime px-2.5 py-0.5 text-xs font-bold">Save {rs(compareAt - price)}</span>
             )}
           </div>
-          <p className="mt-2.5 font-sans text-xs">
+          <p className="mt-2 text-sm text-ink/60">
             <Link href="/pages/shipping" className="underline">Shipping</Link> calculated at checkout.
           </p>
 
           <QtyBuy product={product} />
 
-          <div className="mt-6 divide-y divide-black/10 border-b border-black/10">
+          <div className="card mt-6 divide-y-2 divide-ink/10 px-5">
             {DETAILS.map((d) => (
               <details key={d.title} className="group">
-                <summary className="flex cursor-pointer list-none items-center gap-3 py-4 font-heading text-base font-bold uppercase tracking-[-0.32px]">
+                <summary className="flex cursor-pointer list-none items-center gap-3 py-4 text-base font-bold">
                   <span aria-hidden className="w-5 text-center text-lg font-normal">{d.icon}</span>
                   <span className="flex-1">{d.title}</span>
-                  <span aria-hidden className="flex size-6 items-center justify-center rounded-full bg-white text-lg leading-none shadow-sm transition-transform group-open:rotate-45">+</span>
+                  <span aria-hidden className="flex size-7 items-center justify-center rounded-full border-2 border-ink text-lg leading-none transition-transform group-open:rotate-45 group-open:bg-slime">+</span>
                 </summary>
-                <ul className="flex list-disc flex-col gap-2 pb-5 pl-12 pr-4 font-sans text-sm leading-relaxed text-black/75">
+                <ul className="flex list-disc flex-col gap-2 pb-5 pl-12 pr-4 text-sm leading-relaxed text-ink/75">
                   {d.body.map((b) => (
                     <li key={b}>{b}</li>
                   ))}
@@ -93,11 +93,11 @@ async function Content({ params }: PageProps<"/products/[slug]">) {
             ))}
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-3 font-heading text-sm font-bold md:text-base">
-            <div className="flex items-center gap-3 rounded-xl bg-white p-4">
+          <div className="mt-6 grid grid-cols-2 gap-3 text-sm font-bold md:text-base">
+            <div className="flex rotate-1 items-center gap-3 rounded-2xl border-2 border-ink bg-sky p-4">
               <span aria-hidden className="text-2xl">🇮🇳</span>Proudly Made in India
             </div>
-            <div className="flex items-center gap-3 rounded-xl bg-white p-4">
+            <div className="flex -rotate-1 items-center gap-3 rounded-2xl border-2 border-ink bg-pop p-4">
               <span aria-hidden className="text-2xl">🚚</span>Shipped in 24 hours
             </div>
           </div>
@@ -106,8 +106,10 @@ async function Content({ params }: PageProps<"/products/[slug]">) {
 
       {related.length > 0 && (
         <section className="mt-20">
-          <h2 className="font-heading text-2xl font-bold tracking-[-0.5px] md:text-[32px]">You may also like</h2>
-          <ul className="mt-6 grid grid-cols-2 gap-x-[17px] gap-y-10 md:grid-cols-4 md:gap-x-[31px]">
+          <h2 className="font-display text-4xl leading-none md:text-5xl">
+            more <span className="text-pop">like this</span>
+          </h2>
+          <ul className="mt-8 grid grid-cols-2 gap-x-[17px] gap-y-10 md:grid-cols-4 md:gap-x-[31px]">
             {related.map((p) => (
               <li key={p.id}>
                 <ProductCard product={p} />

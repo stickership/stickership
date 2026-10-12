@@ -1,31 +1,21 @@
-const item = "inline whitespace-nowrap p-[5px] text-[14px] leading-[22.4px] md:text-[18px]";
-const bricolage = `${item} font-heading font-bold md:leading-[23.4px]`;
-const outfit = `${item} font-sans font-medium md:leading-[28.8px]`;
-
-const gradient = {
-  backgroundImage:
-    "linear-gradient(133deg, rgb(250,220,54) 11%, rgb(254,98,146) 49%, rgb(250,220,54) 87%)",
-  backgroundClip: "text",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-} as const;
+const ITEMS = ["Premium vinyl", "Waterproof", "Fade-proof", "Made in India", "Ships in 24 hrs", "Laptop approved"];
 
 export function Marquee() {
   return (
-    <div className="flex h-[26px] gap-[30px] overflow-hidden bg-black text-white md:h-[29px]">
-      <style>{`@keyframes marquee-gap{to{transform:translateX(calc(-100% - 30px))}}`}</style>
-      {[0, 1].map((i) => (
-        <div
-          key={i}
-          aria-hidden={i === 1 || undefined}
-          className="flex min-w-full shrink-0 animate-[marquee-gap_12s_linear_infinite] items-center justify-around gap-[30px]"
-        >
-          <span className={bricolage}>🔥 Premium Vinyl Stickers</span>
-          <span className={outfit} style={gradient}>💚 Waterproof &amp; Fade-proof</span>
-          <span className={bricolage}>🇮🇳 Made in India</span>
-          <span className={outfit}>🚚 Ships in 24 Hrs</span>
-        </div>
-      ))}
+    <div className="overflow-hidden py-5">
+      <div className="-mx-4 flex -rotate-[1.5deg] gap-8 overflow-hidden border-y-2 border-ink bg-slime py-2 text-ink">
+        <style>{`@keyframes marquee-gap{to{transform:translateX(calc(-100% - 2rem))}}`}</style>
+        {[0, 1].map((i) => (
+          <div key={i} aria-hidden={i === 1 || undefined} className="flex min-w-full shrink-0 animate-[marquee-gap_20s_linear_infinite] items-center justify-around gap-8">
+            {ITEMS.map((t) => (
+              <span key={t} className="flex items-center gap-8 whitespace-nowrap font-display text-lg md:text-2xl">
+                {t}
+                <span aria-hidden className="text-pop">✦</span>
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

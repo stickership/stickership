@@ -15,8 +15,8 @@ async function Content({ searchParams }: PageProps<"/login">) {
   return (
     <>
       <div className="mx-auto max-w-[420px] py-16">
-        <h1 className="font-heading text-3xl font-bold">Log in</h1>
-        <p className="mt-2 text-sm text-black/60">We&apos;ll email you a 6-digit code. No password needed.</p>
+        <h1 className="font-display text-5xl leading-none">log in</h1>
+        <p className="mt-3 text-sm text-ink/60">We&apos;ll email you a 6-digit code. No password needed.</p>
         <LoginForm />
       </div>
     </>
