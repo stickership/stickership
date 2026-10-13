@@ -41,8 +41,8 @@ export function Footer() {
           <h2 className="font-display text-4xl leading-none text-slime md:text-5xl">get first dibs</h2>
           <p className="mt-3 max-w-[380px] text-white/70">New drops and restocks, straight to your inbox. Unsubscribe anytime.</p>
           <NewsletterForm />
-          <a href="mailto:support@stickership.com" className="mt-6 inline-block font-mono text-sm text-white/70 hover:text-slime">
-            support@stickership.com
+          <a href="mailto:support@stickership.shop" className="mt-6 inline-block font-mono text-sm text-white/70 hover:text-slime">
+            support@stickership.shop
           </a>
         </div>
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
