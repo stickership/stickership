@@ -18,17 +18,20 @@ const SURFACES = {
 };
 type Surface = keyof typeof SURFACES;
 
-const grid = (xs: number[], ys: number[], rots: number[]): Spot[] =>
-  ys.flatMap((y, r) => xs.map((x, c) => ({ x, y, rot: rots[(r * xs.length + c) % rots.length] }))).slice(0, 8);
-
 const ROT = [-8, 6, -4, 9, 7, -5, 4, -9];
+const JITTER = [2, -2, 3, -1, -3, 1, -2, 2];
+
+const grid = (xs: number[], ys: number[]): Spot[] =>
+  ys
+    .flatMap((y, r) => xs.map((x, c) => r * xs.length + c).map((i, c) => ({ x: xs[c] + JITTER[i % 8], y: y + JITTER[(i + 3) % 8], rot: ROT[i % 8] })))
+    .slice(0, 8);
 
 const LAYOUTS: Record<Surface, Spot[]> = {
-  laptop: grid([14, 38, 62, 86], [27, 73], ROT),
-  bottle: grid([28, 72], [14, 38, 62, 86], ROT),
-  phone: grid([28, 72], [16, 39, 62, 85], ROT),
-  notebook: grid([24, 52, 80], [17, 50, 83], ROT),
-  skateboard: grid([22, 41, 60, 79], [30, 70], ROT),
+  laptop: grid([14, 38, 62, 86], [27, 73]),
+  bottle: grid([28, 72], [14, 38, 62, 86]),
+  phone: grid([28, 72], [28, 48, 68, 88]),
+  notebook: grid([24, 52, 80], [17, 50, 83]),
+  skateboard: grid([22, 41, 60, 79], [30, 70]),
 };
 
 const layout = (ids: string[], surface: Surface, cur: Record<string, Spot> = {}) =>
