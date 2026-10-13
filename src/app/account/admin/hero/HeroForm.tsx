@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useActionState, useState } from "react";
 import type { Hero } from "@/lib/catalog";
-import { saveHero } from "../actions";
+import { createClient } from "@/lib/supabase/client";
+import { saveHero, saveProduct } from "../actions";
 import { btn, card, input } from "../_components/ui";
 
 const FIELDS: [keyof Hero, string, number][] = [
@@ -21,7 +22,10 @@ type Pick = { id: string; title: string; image: string };
 export function HeroForm({ hero, products }: { hero: Hero; products: Pick[] }) {
   const [h, setH] = useState(hero);
   const [q, setQ] = useState("");
-  const byId = new Map(products.map((p) => [p.id, p]));
+  const [extra, setExtra] = useState<Pick[]>([]);
+  const [upload, setUpload] = useState("");
+  const all = [...extra, ...products];
+  const byId = new Map(all.map((p) => [p.id, p]));
   const picked = h.stickers.flatMap((id) => byId.get(id) ?? []);
   const setPicked = (ids: string[]) => setH({ ...h, stickers: ids });
   const move = (i: number, d: number) => {
@@ -29,8 +33,39 @@ export function HeroForm({ hero, products }: { hero: Hero; products: Pick[] }) {
     [ids[i], ids[i + d]] = [ids[i + d], ids[i]];
     setPicked(ids);
   };
-  const results = products.filter((p) => !h.stickers.includes(p.id) && p.title.toLowerCase().includes(q.trim().toLowerCase())).slice(0, 24);
+  const results = all.filter((p) => !h.stickers.includes(p.id) && p.title.toLowerCase().includes(q.trim().toLowerCase())).slice(0, 24);
   const [state, action, pending] = useActionState(saveHero, null);
+
+  async function addUploads(files: File[]) {
+    const supabase = createClient();
+    const room = 16 - h.stickers.length;
+    for (const [i, file] of files.slice(0, room).entries()) {
+      const ext = { "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp" }[file.type];
+      if (!ext || file.size > 5 * 1024 * 1024) {
+        setUpload(`${file.name}: use a PNG, JPG or WEBP under 5 MB`);
+        continue;
+      }
+      setUpload(`Uploading ${i + 1} of ${Math.min(files.length, room)}…`);
+      const path = `${crypto.randomUUID()}.${ext}`;
+      const { error } = await supabase.storage.from("products").upload(path, file, { contentType: file.type, cacheControl: "31536000" });
+      if (error) {
+        setUpload(`${file.name}: ${error.message}`);
+        continue;
+      }
+      const image = supabase.storage.from("products").getPublicUrl(path).data.publicUrl;
+      const title = file.name.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").trim().slice(0, 100) || "New sticker";
+      const slug = `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 100) || "sticker"}-${path.slice(0, 4)}`;
+      const res = await saveProduct({ title: title.length < 2 ? "New sticker" : title, slug, image, images: [], price: 10, compare_at: 79, theme: null, style: null, type: "Stickers", in_stock: true, position: 999999 });
+      if (!res.ok || !res.id) {
+        setUpload(`${file.name}: ${res.ok ? "not saved" : res.error}`);
+        continue;
+      }
+      const id = res.id;
+      setExtra((cur) => [{ id, title, image }, ...cur]);
+      setH((cur) => ({ ...cur, stickers: [...cur.stickers, id] }));
+      setUpload(`Added "${title}" as a ₹10 sticker. Rename or reprice it in Products.`);
+    }
+  }
 
   return (
     <div className="grid gap-4 xl:grid-cols-[1fr_1fr]">
@@ -72,6 +107,11 @@ export function HeroForm({ hero, products }: { hero: Hero; products: Pick[] }) {
             <>
               <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search stickers to add…" className={input} />
               <div className="grid max-h-64 grid-cols-4 gap-2 overflow-y-auto sm:grid-cols-6">
+                <label title="Upload new stickers" className="flex aspect-square cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-ink/40 bg-slime/30 text-center text-[11px] font-bold leading-tight hover:border-ink">
+                  <span className="text-2xl leading-none">+</span>
+                  Upload new
+                  <input type="file" accept="image/png,image/jpeg,image/webp" multiple className="sr-only" onChange={(e) => (addUploads(Array.from(e.target.files ?? [])), (e.target.value = ""))} />
+                </label>
                 {results.map((p) => (
                   <button key={p.id} type="button" title={p.title} onClick={() => setPicked([...picked.map((x) => x.id), p.id])} className="relative aspect-square rounded-xl border-2 border-ink/10 bg-white hover:border-ink">
                     <Image src={p.image} alt={p.title} fill sizes="80px" className="object-contain p-1" />
@@ -80,6 +120,7 @@ export function HeroForm({ hero, products }: { hero: Hero; products: Pick[] }) {
               </div>
             </>
           )}
+          {upload && <p className="text-xs font-semibold text-ink/70">{upload}</p>}
           {picked.length > 0 && (
             <button type="button" onClick={() => setPicked([])} className="self-start text-xs font-semibold underline">
               Clear all (use automatic)
