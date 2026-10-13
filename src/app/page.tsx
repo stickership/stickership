@@ -6,7 +6,10 @@ import { Marquee } from "@/components/Marquee";
 import { CollectionToolbar } from "@/components/CollectionToolbar";
 import { ProductGrid } from "@/components/ProductGrid";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
 import { facetCounts, listProducts, type Filters } from "@/lib/catalog";
+
+export const metadata = { alternates: { canonical: "/" } };
 
 const KEYS = ["theme", "style", "type", "availability", "sort"] as const;
 
@@ -27,6 +30,25 @@ async function Collection({ searchParams }: PageProps<"/">) {
 export default function Home(props: PageProps<"/">) {
   return (
     <div className="pb-24 md:pb-0">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "OnlineStore",
+              "@id": "https://stickership.shop/#org",
+              name: "stickership",
+              url: "https://stickership.shop/",
+              logo: "https://stickership.shop/logo.jpg",
+              description: "Indian online store for waterproof vinyl stickers from ₹10, shipped across India in 24 hours.",
+              email: "support@stickership.shop",
+              areaServed: "IN",
+              contactPoint: { "@type": "ContactPoint", contactType: "customer support", email: "support@stickership.shop", availableLanguage: ["en", "hi"] },
+            },
+            { "@type": "WebSite", "@id": "https://stickership.shop/#website", url: "https://stickership.shop/", name: "stickership", publisher: { "@id": "https://stickership.shop/#org" }, inLanguage: "en-IN" },
+          ],
+        }}
+      />
       <AnnouncementBar />
       <Header />
       <main>

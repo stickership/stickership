@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { rs } from "@/lib/format";
 import { isAdmin } from "@/lib/admin";
 
-export const metadata = { title: "My account | stickership" };
+export const metadata = { title: "My account", robots: { index: false } };
 
 export default async function AccountPage() {
   const supabase = await createClient();

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AddToCart } from "@/components/AddToCart";
 import type { Product } from "@/lib/catalog";
@@ -6,6 +9,14 @@ import { rs } from "@/lib/format";
 
 export function ProductCard({ product }: { product: Product }) {
   const { slug, title, image } = product;
+  const pics = [image, ...(product.images ?? [])];
+  const [hover, setHover] = useState(false);
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    if (!hover || pics.length < 2) return;
+    const id = setInterval(() => setIdx((i) => (i + 1) % pics.length), 900);
+    return () => clearInterval(id);
+  }, [hover, pics.length]);
   const price = Number(product.price);
   const compareAt = Number(product.compare_at ?? 0);
   const href = `/products/${slug}`;
@@ -14,15 +25,30 @@ export function ProductCard({ product }: { product: Product }) {
     <div className="group flex h-full flex-col">
       <Link
         href={href}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => {
+          setHover(false);
+          setIdx(0);
+        }}
         className="die-cut relative block aspect-square overflow-hidden bg-white transition-transform duration-300 ease-out group-hover:-translate-y-1 group-hover:-rotate-2"
       >
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(min-width:990px) 25vw, (min-width:750px) 33vw, 50vw"
-          className="object-cover"
-        />
+        {(hover ? pics : [image]).map((src, i) => (
+          <Image
+            key={src}
+            src={src}
+            alt={i ? "" : title}
+            fill
+            sizes="(min-width:990px) 25vw, (min-width:750px) 33vw, 50vw"
+            className={`object-cover transition-opacity duration-300 ${i === idx ? "opacity-100" : "opacity-0"}`}
+          />
+        ))}
+        {hover && pics.length > 1 && (
+          <span aria-hidden className="absolute inset-x-0 bottom-2 flex justify-center gap-1">
+            {pics.map((src, i) => (
+              <span key={src} className={`h-1.5 rounded-full transition-all ${i === idx ? "w-4 bg-ink" : "w-1.5 bg-ink/30"}`} />
+            ))}
+          </span>
+        )}
         {off > 0 && (
           <span className="absolute left-2.5 top-2.5 -rotate-6 rounded-full border-2 border-ink bg-slime px-2 py-0.5 font-mono text-[11px] font-bold leading-tight text-ink md:text-xs">
             -{off}%

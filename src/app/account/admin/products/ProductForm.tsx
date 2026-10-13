@@ -19,7 +19,7 @@ type Options = { theme: string[]; style: string[]; type: string[] };
 export function ProductForm({ product, options }: { product?: ProductInput & { id: string }; options: Options }) {
   const router = useRouter();
   const [f, setF] = useState<ProductInput>(
-    product ?? { title: "", slug: "", image: "", price: 10, compare_at: 79, theme: null, style: null, type: "Stickers", in_stock: true, position: 0 },
+    product ?? { title: "", slug: "", image: "", images: [], price: 10, compare_at: 79, theme: null, style: null, type: "Stickers", in_stock: true, position: 0 },
   );
   const [slugTouched, setSlugTouched] = useState(!!product);
   const [error, setError] = useState("");
@@ -31,7 +31,7 @@ export function ProductForm({ product, options }: { product?: ProductInput & { i
     setF((cur) => ({ ...cur, [k]: v }));
   };
 
-  async function upload(file: File) {
+  async function upload(file: File, extra = false) {
     if (file.size > 5 * 1024 * 1024) return setError("Image must be under 5 MB");
     const ext = { "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp" }[file.type];
     if (!ext) return setError("Use a PNG, JPG or WEBP image");
@@ -42,7 +42,12 @@ export function ProductForm({ product, options }: { product?: ProductInput & { i
     const { error } = await supabase.storage.from("products").upload(path, file, { contentType: file.type, cacheControl: "31536000" });
     setUploading(false);
     if (error) return setError(error.message);
-    set("image", supabase.storage.from("products").getPublicUrl(path).data.publicUrl);
+    const url = supabase.storage.from("products").getPublicUrl(path).data.publicUrl;
+    if (extra) {
+      setSaved(false);
+      setF((cur) => ({ ...cur, images: [...(cur.images ?? []), url].slice(0, 8) }));
+    }
+    else set("image", url);
   }
 
   function submit(e: React.FormEvent) {
@@ -89,6 +94,28 @@ export function ProductForm({ product, options }: { product?: ProductInput & { i
           <input type="file" accept="image/png,image/jpeg,image/webp" className="sr-only" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
         </label>
         {f.image && <p className="mt-2 text-xs text-black/50">{uploading ? "Uploading…" : "Click the image to replace it."}</p>}
+        <p className="mb-2 mt-5 text-sm font-semibold">More images ({f.images?.length ?? 0}/8)</p>
+        <div className="grid grid-cols-4 gap-2">
+          {f.images?.map((src, i) => (
+            <div key={src} className="group relative aspect-square overflow-hidden rounded-lg border-2 border-ink/10 bg-media">
+              <Image src={src} alt="" fill sizes="80px" className="object-contain" />
+              <button
+                type="button"
+                aria-label="Remove image"
+                onClick={() => set("images", f.images!.filter((_, j) => j !== i))}
+                className="absolute right-1 top-1 flex size-6 items-center justify-center rounded-full bg-ink text-xs text-white"
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+          {(f.images?.length ?? 0) < 8 && (
+            <label className="flex aspect-square cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-black/15 text-2xl text-black/40 hover:border-black/40">
+              +
+              <input type="file" accept="image/png,image/jpeg,image/webp" multiple className="sr-only" onChange={(e) => Array.from(e.target.files ?? []).slice(0, 8 - (f.images?.length ?? 0)).forEach((file) => upload(file, true))} />
+            </label>
+          )}
+        </div>
       </div>
 
       <div className={`${card} grid content-start gap-4 md:grid-cols-2`}>

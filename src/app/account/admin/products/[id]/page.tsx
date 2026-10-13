@@ -9,7 +9,7 @@ export default async function EditProduct({ params }: PageProps<"/account/admin/
   const { id } = await params;
   if (!/^[0-9a-f-]{36}$/.test(id)) notFound();
   const [{ data: product }, options] = await Promise.all([
-    supabase.from("products").select("id, title, slug, image, price, compare_at, theme, style, type, in_stock, position").eq("id", id).maybeSingle(),
+    supabase.from("products").select("id, title, slug, image, images, price, compare_at, theme, style, type, in_stock, position").eq("id", id).maybeSingle(),
     productOptions(),
   ]);
   if (!product) notFound();

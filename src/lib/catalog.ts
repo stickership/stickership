@@ -1,6 +1,7 @@
 import "server-only";
 import { createClient } from "@supabase/supabase-js";
 import { unstable_cache } from "next/cache";
+import { cache } from "react";
 import { PAGE_SIZE } from "@/lib/format";
 
 export type Product = {
@@ -8,6 +9,7 @@ export type Product = {
   slug: string;
   title: string;
   image: string;
+  images: string[];
   price: number;
   compare_at: number | null;
   in_stock: boolean;
@@ -16,7 +18,7 @@ export type Product = {
 
 export type Filters = Partial<Record<"theme" | "style" | "type" | "availability" | "sort", string>>;
 
-const COLUMNS = "id, slug, title, image, price, compare_at, in_stock, theme";
+const COLUMNS = "id, slug, title, image, images, price, compare_at, in_stock, theme";
 
 const SORTS: Record<string, [string, boolean]> = {
   featured: ["position", true],
@@ -53,11 +55,21 @@ export async function listProducts(f: Filters, page = 0) {
   return data as Product[];
 }
 
-export async function getProduct(slug: string) {
+export const getProduct = cache(async (slug: string) => {
   const { data, error } = await db().from("products").select(COLUMNS).eq("slug", slug).maybeSingle();
   if (error) throw error;
   return data as Product | null;
-}
+});
+
+export const allSlugs = unstable_cache(
+  async () => {
+    const { data, error } = await db().from("products").select("slug, created_at").order("position").limit(50000);
+    if (error) throw error;
+    return data as { slug: string; created_at: string }[];
+  },
+  ["all-slugs"],
+  { revalidate: 3600, tags: ["products"] },
+);
 
 export async function searchProducts(term: string) {
   const words = term.trim().split(/\s+/).filter(Boolean).slice(0, 6);
@@ -87,7 +99,12 @@ export const facetCounts = unstable_cache(
 );
 
 export const heroProducts = unstable_cache(
-  async () => {
+  async (ids: string[]) => {
+    if (ids.length) {
+      const { data, error } = await db().from("products").select(COLUMNS).in("id", ids).eq("in_stock", true);
+      if (error) throw error;
+      return ids.flatMap((id) => (data as Product[]).filter((p) => p.id === id));
+    }
     const { data, error } = await db()
       .from("products")
       .select(COLUMNS)
@@ -99,5 +116,26 @@ export const heroProducts = unstable_cache(
     return data as Product[];
   },
   ["hero-products"],
-  { revalidate: 3600, tags: ["products"] },
+  { revalidate: 3600, tags: ["products", "hero"] },
+);
+
+export type Hero = { badge: string; line1: string; line2: string; highlight: string; subtitle: string; cta: string; stickers: string[] };
+
+export const HERO_DEFAULT: Hero = {
+  badge: "Waterproof vinyl · ships in 24h",
+  line1: "slap it",
+  line2: "for",
+  highlight: "₹10",
+  subtitle: "Anime, memes, cats, chaos. Drag a few onto the laptop to test your vibe, then grab the whole setup in one tap.",
+  cta: "Shop all stickers",
+  stickers: [],
+};
+
+export const heroContent = unstable_cache(
+  async () => {
+    const { data } = await db().from("site_settings").select("value").eq("key", "hero").maybeSingle();
+    return { ...HERO_DEFAULT, ...(data?.value as Partial<Hero> | undefined) };
+  },
+  ["hero-content-v2"],
+  { revalidate: 3600, tags: ["hero"] },
 );

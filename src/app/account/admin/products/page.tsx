@@ -28,9 +28,14 @@ export default async function ProductsPage({ searchParams }: PageProps<"/account
     <>
       <PageTitle
         action={
-          <Link href="/account/admin/products/new" className={btn}>
-            + New sticker
-          </Link>
+          <div className="flex gap-2">
+            <Link href="/account/admin/products/import" className={btnGhost}>
+              Import CSV
+            </Link>
+            <Link href="/account/admin/products/new" className={btn}>
+              + New sticker
+            </Link>
+          </div>
         }
       >
         Products <span className="text-base font-medium text-black/40">({count ?? 0})</span>

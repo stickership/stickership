@@ -4,7 +4,7 @@ import { Shell } from "@/components/Shell";
 import { createClient } from "@/lib/supabase/server";
 import { LoginForm } from "./LoginForm";
 
-export const metadata = { title: "Log in | stickership" };
+export const metadata = { title: "Log in", robots: { index: false } };
 
 async function Content({ searchParams }: PageProps<"/login">) {
   const next = (await searchParams).next;

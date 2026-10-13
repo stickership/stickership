@@ -1,7 +1,7 @@
 import { Shell } from "@/components/Shell";
 import { TrackForm } from "./TrackForm";
 
-export const metadata = { title: "Track your order | stickership" };
+export const metadata = { title: "Track your order" };
 
 export default function TrackPage() {
   return (

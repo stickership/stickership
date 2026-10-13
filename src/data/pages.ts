@@ -9,10 +9,17 @@ export const pages: Record<string, { title: string; body: string[] }> = {
   faq: {
     title: "Frequently Asked Questions",
     body: [
-      "Are the stickers waterproof? Yes. They are printed on waterproof vinyl and handle rain, spills and bottle washing.",
-      "How fast do you ship? Orders are packed within 24 hours. Delivery usually takes 3–7 working days depending on your pincode.",
-      "Do you ship across India? Yes, to every serviceable pincode.",
-      "How do I track my order? Use the Track Your Order page with your order ID and email.",
+      "How much do stickers cost? Most stickers are ₹10 each. Mystery boxes and special packs are priced on their product pages.",
+      "Are the stickers waterproof? Yes. They are printed on waterproof vinyl with a matte finish and handle rain, spills and bottle washing.",
+      "What size are the stickers? Each sticker fits within a 3 × 3 inch area. Exact height and width depend on the design's shape.",
+      "Where can I stick them? Laptops, water bottles, phone cases, notebooks, helmets, guitars and any clean, smooth surface.",
+      "How fast do you ship? Orders are packed and dispatched within 24 hours on working days. Delivery usually takes 3–7 working days depending on your pincode.",
+      "Is shipping free? Shipping is free on orders of ₹299 and above. Below that, a flat ₹49 shipping fee applies.",
+      "Do you ship across India? Yes, to every serviceable pincode in India. We do not ship internationally yet.",
+      "Which payment methods do you accept? UPI, debit and credit cards, netbanking and wallets, processed securely by Razorpay.",
+      "What if my order arrives damaged? Email us within 7 days of delivery with photos and your order ID, and we will send a free replacement or a full refund.",
+      "How do I track my order? Use the Track Your Order page with your order ID and the email you used at checkout.",
+      "Do you make custom or bulk stickers? Yes. Email us with the quantity, sizes and artwork, and we will send a quote within 24 hours.",
     ],
   },
   shipping: {

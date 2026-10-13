@@ -10,7 +10,7 @@ import { rs } from "@/lib/format";
 import { ClearCart } from "./ClearCart";
 import { Confetti } from "./Confetti";
 
-export const metadata = { title: "Your order | stickership", robots: { index: false } };
+export const metadata = { title: "Your order", robots: { index: false } };
 
 const LABEL: Record<string, [string, string]> = {
   pending: ["Awaiting payment", "bg-amber-200"],

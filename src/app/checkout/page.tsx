@@ -2,7 +2,7 @@ import { Shell } from "@/components/Shell";
 import { createClient } from "@/lib/supabase/server";
 import { CheckoutForm } from "./CheckoutForm";
 
-export const metadata = { title: "Checkout | stickership" };
+export const metadata = { title: "Checkout", robots: { index: false } };
 
 async function Content() {
   const supabase = await createClient();

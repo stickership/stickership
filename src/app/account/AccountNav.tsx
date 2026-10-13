@@ -10,6 +10,7 @@ const USER = [
 ];
 const ADMIN = [
   ["Dashboard", "/account/admin"],
+  ["Homepage", "/account/admin/hero"],
   ["Products", "/account/admin/products"],
   ["Orders", "/account/admin/orders"],
   ["Customers", "/account/admin/customers"],

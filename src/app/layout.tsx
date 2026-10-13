@@ -8,8 +8,12 @@ const spaceMono = Space_Mono({ variable: "--font-spacemono", subsets: ["latin"],
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://stickership.shop"),
-  title: "Buy Vinyl Stickers Online in India | stickership",
-  description: "Premium vinyl stickers starting at ₹10. Waterproof, fade-proof, shipped in 24 hrs.",
+  title: { default: "Buy Vinyl Stickers Online in India at ₹10 | stickership", template: "%s | stickership" },
+  description: "Waterproof vinyl stickers for laptops, bottles and phones from ₹10. Anime, memes, gaming and more. Ships across India in 24 hours.",
+  applicationName: "stickership",
+  openGraph: { type: "website", siteName: "stickership", locale: "en_IN", images: [{ url: "/logo.jpg", width: 500, height: 500, alt: "stickership" }] },
+  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
 };
 
 export const viewport: Viewport = { themeColor: "#15111c" };
