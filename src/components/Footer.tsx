@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NewsletterForm } from "@/components/NewsletterForm";
+import { business } from "@/data/business";
 
 const COLUMNS = [
   {
@@ -16,8 +17,8 @@ const COLUMNS = [
     links: [
       ["Track your order", "/track"],
       ["FAQ", "/pages/faq"],
-      ["Shipping policy", "/pages/shipping"],
-      ["Refund policy", "/pages/refund"],
+      ["Shipping & delivery", "/pages/shipping"],
+      ["Cancellation & refunds", "/pages/refund"],
       ["Contact us", "/pages/contact"],
     ],
   },
@@ -41,8 +42,8 @@ export function Footer() {
           <h2 className="font-display text-4xl leading-none text-slime md:text-5xl">get first dibs</h2>
           <p className="mt-3 max-w-[380px] text-white/70">New drops and restocks, straight to your inbox. Unsubscribe anytime.</p>
           <NewsletterForm />
-          <a href="mailto:support@stickership.shop" className="mt-6 inline-block font-mono text-sm text-white/70 hover:text-slime">
-            support@stickership.shop
+          <a href={`mailto:${business.email}`} className="mt-6 inline-block font-mono text-sm text-white/70 hover:text-slime">
+            {business.email}
           </a>
         </div>
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
@@ -68,7 +69,9 @@ export function Footer() {
         </p>
       </div>
       <div className="border-t border-white/10 py-4">
-        <p className={`${wrap} font-mono text-xs text-white/50`}>© 2026 stickership · Made in India</p>
+        <p className={`${wrap} font-mono text-xs text-white/50`}>
+          © 2026 {business.brand} · Made in India
+        </p>
       </div>
     </footer>
   );

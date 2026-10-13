@@ -19,7 +19,7 @@ export async function GET() {
 - Shipping: India only, dispatched within 24 hours, delivered in 3–7 working days; free above ₹299, otherwise ₹49
 - Payments: UPI, cards, netbanking and wallets via Razorpay
 - Returns: free replacement or refund for damaged or wrong items reported within 7 days
-- Support: support@stickership.shop
+- Support: stickershipindia@gmail.com
 
 ## Pages
 - [Shop all stickers](https://stickership.shop/)

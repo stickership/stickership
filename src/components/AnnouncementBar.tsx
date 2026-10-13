@@ -28,7 +28,7 @@ export function AnnouncementBar() {
     <div className="relative z-[90] bg-pop text-ink">
       <div className="mx-auto flex h-10 max-w-[1600px] items-center justify-center gap-3 px-4 font-mono text-[12px] font-bold uppercase tracking-wide md:h-11 md:text-sm">
         <span>
-          Every sticker ₹10 <span className="hidden sm:inline">· drop ends in</span>
+          Sticker Sale <span className="hidden sm:inline">· drop ends in</span>
         </span>
         <span className="flex items-center gap-1" aria-label={`${t[1]} hours ${t[2]} minutes ${t[3]} seconds left`}>
           {t.slice(1).map((v, i) => (
