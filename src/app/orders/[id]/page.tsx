@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/server";
 import { orderToken, reconcile } from "@/lib/orders";
 import { rs } from "@/lib/format";
 import { ClearCart } from "./ClearCart";
+import { Confetti } from "./Confetti";
 
 export const metadata = { title: "Your order | stickership", robots: { index: false } };
 
@@ -63,6 +64,7 @@ async function Content({ params, searchParams }: PageProps<"/orders/[id]">) {
   return (
     <>
       {order.status !== "pending" && order.status !== "cancelled" && order.status !== "failed" && <ClearCart />}
+      {order.status === "paid" && <Confetti id={order.id} />}
       <div className="mx-auto max-w-[720px] py-12">
         <p className="font-mono text-sm text-ink/60">Order #{order.id.slice(0, 8).toUpperCase()}</p>
         <h1 className="mt-2 font-display text-5xl leading-none">{order.status === "paid" ? `Thanks, ${order.name.split(" ")[0]}!` : "Order status"}</h1>
