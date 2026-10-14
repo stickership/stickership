@@ -13,7 +13,7 @@ npm run dev
 
 Login codes land in the local inbox at http://127.0.0.1:55324.
 
-## Production setup
+# Production setup
 
 1. **Supabase**: `supabase link --project-ref <ref>` → `supabase db push` → run `supabase/seed.sql` in the SQL editor.
 2. **Auth email**: Dashboard → Auth → Email Templates → *Magic Link*: paste `supabase/templates/magic_link.html` (must contain `{{ .Token }}` so users get a code, not a link).
